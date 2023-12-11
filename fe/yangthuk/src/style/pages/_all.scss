@@ -1,0 +1,38 @@
+@use "sass:map";
+@import "theme";
+
+html,
+body
+{
+    margin: 0;
+}
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+.container 
+{
+    max-width: 1170px;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    // background: map.get($theme-color, "main");
+    margin: auto;
+}
+
+.row
+{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-1 
+{
+    flex: 0 0 20%;
+    max-width: 30%;
+}
+.col-2
+{
+    flex: 0 0 80%;
+    max-width: 80%;
+}
