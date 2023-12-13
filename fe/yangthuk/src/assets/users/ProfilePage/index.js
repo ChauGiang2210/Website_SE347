@@ -6,6 +6,6 @@ const Profile = () =>
         <>
             <h1>profile</h1>
         </>
-    );
+    )
 };
 export default memo(Profile);
