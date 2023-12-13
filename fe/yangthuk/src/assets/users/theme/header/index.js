@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 const Header = () =>
 {
     return (
+    <div>
     <div className="header_top">
     <div>
         <div className='row'>
@@ -23,6 +24,20 @@ const Header = () =>
             </ul>
             </div>
         </div>
+    </div>
+    </div >
+    <div className="Head-Image container">
+        <img className='mp' src={process.env.PUBLIC_URL + '/mypham.jpg'} alt="Logo" />
+    </div>
+    <div className="move-image">
+    <marquee behavior="alternate" width="100%" loop="-1" direction="right">
+        <img className='move' src={process.env.PUBLIC_URL + '/move1.jpg'} alt="Logo" />
+        <img className='move' src={process.env.PUBLIC_URL + '/move2.jpg'} alt="Logo" />
+        <img className='move' src={process.env.PUBLIC_URL + '/move3.jpg'} alt="Logo" />
+        <img className='move' src={process.env.PUBLIC_URL + '/move4.jpg'} alt="Logo" />
+        <img className='move' src={process.env.PUBLIC_URL + '/move5.jpg'} alt="Logo" />
+        <img className='move' src={process.env.PUBLIC_URL + '/move6.jpg'} alt="Logo" />
+    </marquee>
     </div>
     </div>
     );

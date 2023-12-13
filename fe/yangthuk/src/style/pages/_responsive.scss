@@ -1,0 +1,18 @@
+$DESKTOP: "DESKTOP";
+$MEDIUM_DEVICE: "MEDIUM_DEVICE";
+// $TABLET_DEVICE: "TABLET_DEVICE";
+// $WIDE_MOBILE: "WIDE_MOBILE";
+// $SMALL_DEVICES: "SMALL_DEVICE";
+
+@mixin Responsive($canvas)
+{
+    @if ($canvas) == $DESKTOP
+    {
+        @media only screen and (min-width: 1200px){
+        @content;}
+    } @else if ($canvas == $MEDIUM_DEVICE)
+    {
+        @media only screen and (min-width: 600px){
+        @content;}
+    }
+}
