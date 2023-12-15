@@ -36,6 +36,12 @@ body
     flex: 0 0 80%;
     max-width: 80%;
 }
+.icon
+{
+    font-size: 22px;
+    margin-bottom: 10px;
+    padding-right: 5px;
+}
 
 @include Responsive($MEDIUM_DEVICE)
 {
