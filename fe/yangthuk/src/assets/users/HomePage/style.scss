@@ -1,0 +1,67 @@
+@use "sass:map";
+@import "style/pages/theme";
+.Home
+{
+    padding-right: 50px;
+}
+.body-right
+{
+    //background: rgba(3,140,127,0.5);
+    padding-top: 10px;
+    display: grid;
+    p 
+    {
+        padding-left: 40px;
+        padding-bottom: 10px;
+    }
+    box-sizing: border-box;
+}
+.body-left
+{
+    padding-top: 10px;
+    background: rgba(3,140,127,0.5);
+    display: grid;
+    p 
+    {
+        padding-left: 10%;
+        padding-bottom: 10px;
+    }
+    box-sizing: border-box;
+}
+#menu {
+    float: left;
+    height: auto;
+    line-height: 15px;
+  }
+  
+#menu a {
+    display: list-item;
+    list-style-position: inside;
+    color: map.get($theme-color, "content");
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin: 15px;
+    margin-left: 0;
+    font-size: 13px;
+    background-image: linear-gradient(to right, rgba(255, 245, 245, 1), rgba(255, 245, 245, 0.5));
+    list-style-type: none;
+  }
+  
+#menu a:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: map.get($theme-color, "content-hover");
+    transition: 0.5s;
+  }
+
+.icon-container {
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    transform: translate(-25%, -25%); /* Để căn giữa theo trục x và y */
+  }
+.banner
+{
+    width: 100%;
+}
+  
