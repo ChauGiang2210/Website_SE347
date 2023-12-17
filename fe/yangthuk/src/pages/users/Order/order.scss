@@ -10,14 +10,17 @@
 }
 .Product-dis
 {
+
     border: 1px;
     border-color: map.get($theme-color, "main");
-    border-style:groove;
+    border-style: groove;
     margin: 2%;
     padding: 20px;
+
 }
 .Product-info
 {
+
     flex: 0 0 47%;
     margin: 2%;
     padding: 5px;
@@ -32,4 +35,23 @@
         font-weight: bolder;
         padding-bottom: 20px;
     }
+
+}
+.table
+{
+
+    flex: 0 0 47%;
+    margin-top: 5%;
+    padding: 5px;
+    border: 2px;
+    font-size: 16px;
+    border-color: map.get($theme-color, "main");
+    border-style: groove;
+
+}
+.icon-buy
+{
+    font-size: 25px;
+    //margin-bottom: 10px;
+    margin-left: 10px;
 }

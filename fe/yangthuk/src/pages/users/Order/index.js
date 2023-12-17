@@ -2,19 +2,22 @@ import { memo } from "react";
 import "./order.scss";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import Banner from "component/banner/banner";
 
 const Order = () =>
 {
     return (
         <div>
-            <div className="row">
+            {/* <div className="row">
                 <div className='banner-left'>
                     <h3>THÔNG TIN SẢN PHẨM </h3>
                 </div>
                 <div className='banner-right'>
-                    {/* <h3>img</h3> */}
                 </div>
-            </div>
+            </div> */}
+            <Banner>
+                THÔNG TIN SẢN PHẨM
+            </Banner>
             <div className="row">
                 <img className="product-image" src={process.env.PUBLIC_URL + '/son-demo.jpg'} alt="product-image" />
                 <div className="Product-info">
@@ -22,21 +25,20 @@ const Order = () =>
                     <p>Thương hiệu: </p>
                     <p>Loại sản phẩm: </p>
                     <p>Giá thành: </p>
-                </div>
                 <div className="buy">
-                    <table>
+                    <form>
+                    <table className="table">
                         <tr>
-                        <form>
                             <td>Số lượng:</td>
                             <td><input name="sl" type='number' id='DuDoan' size='20' maxlength='10' class="text"></input></td>
-                        </form>
                         </tr>
                         <tr>
-                            <td><p>Thêm vào giỏ hàng: </p></td>
-                            <td><Link to={""}><MdOutlineShoppingCart className='icon' /></Link></td>
+                            <td>Thêm vào giỏ hàng:</td>
+                            <td><Link to={""}><MdOutlineShoppingCart className='icon-buy' /></Link></td>
                         </tr>
                     </table>
-
+                    </form>
+                </div>
                 </div>
             </div>
             <div className='Product-dis'>

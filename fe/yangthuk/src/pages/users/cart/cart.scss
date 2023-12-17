@@ -1,0 +1,32 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.cart
+{
+    padding-right: 50px;
+}
+.body-left {
+    padding-top: 10px;
+    background: rgba(3, 140, 127, 0.5);
+    display: grid;
+  
+    p {
+      padding-left: 10%;
+      padding-bottom: 10px;
+    }
+  
+    box-sizing: border-box;
+  }
+
+.body-right {
+    //background: rgba(3,140,127,0.5);
+    padding-top: 10px;
+    display: grid;
+  
+    p {
+      padding-left: 40px;
+      padding-bottom: 10px;
+    }
+  
+    box-sizing: border-box;
+  }

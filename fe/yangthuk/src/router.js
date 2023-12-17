@@ -5,6 +5,7 @@ import {ROUTERS} from "./utils/router"
 import Masterlayout from "./pages/users/theme/masterLayout"
 import ProfilePage from "./pages/users/profilePage"
 import Order from "./pages/users/order"
+import Cart from "./pages/users/cart"
 
 const renderUserRouter = () =>
 {
@@ -21,6 +22,10 @@ const renderUserRouter = () =>
         {
             path: ROUTERS.USER.ORDER,
             component: <Order/>
+        },
+        {
+            path: ROUTERS.USER.CART,
+            component: <Cart/>
         }
     ]
 
