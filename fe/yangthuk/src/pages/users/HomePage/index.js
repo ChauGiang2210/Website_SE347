@@ -2,6 +2,7 @@ import { memo } from "react";
 import "./style.scss";
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
+import Product from "./product";
 
 const HomePage = () =>
 {
@@ -21,7 +22,7 @@ const HomePage = () =>
                     <img className='banner' src={process.env.PUBLIC_URL + '/banner.jpg'} alt="banner" />
                 </div>
                 <div className="col-2 body-right">
-                <p>hihi</p>
+                <Product/>
                 </div>
             </div>
         </div>
