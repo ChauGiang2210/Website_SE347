@@ -1,8 +1,10 @@
-import { Routes, Route } from "react-router-dom"
-import HomePage from "./pages/users/homePage"
-import { ROUTERS } from "./utils/router"
-import Masterlayout from "./pages/users/theme/masterLayout"
-import ProfilePage from "./pages/users/profilePage"
+
+import {Routes, Route} from "react-router-dom"
+import HomePage from "./pages/users/HomePage"
+import {ROUTERS} from "./utils/router"
+import Masterlayout from "./pages/users/theme/masterlayout"
+import ProfilePage from "./pages/users/ProfilePage"
+import Order from "./pages/users/Order"
 
 const renderUserRouter = () =>
 {
@@ -15,6 +17,10 @@ const renderUserRouter = () =>
         {
             path: ROUTERS.USER.PROFILE,
             component: <ProfilePage/>
+        },
+        {
+            path: ROUTERS.USER.ORDER,
+            component: <Order/>
         }
     ]
 

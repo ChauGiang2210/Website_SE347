@@ -1,0 +1,35 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.product-image
+{
+    display: flex;
+    flex: 0 0 40%;
+    margin: 2%;
+    width: 40%;
+}
+.Product-dis
+{
+    border: 1px;
+    border-color: map.get($theme-color, "main");
+    border-style:groove;
+    margin: 2%;
+    padding: 20px;
+}
+.Product-info
+{
+    flex: 0 0 47%;
+    margin: 2%;
+    padding: 5px;
+    p{
+        font-weight: 2px;
+        padding: 2px;
+        font-size: 20px;
+    }
+    #p-name
+    {
+        font-size:2em;
+        font-weight: bolder;
+        padding-bottom: 20px;
+    }
+}
