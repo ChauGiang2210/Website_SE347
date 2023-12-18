@@ -21,7 +21,7 @@ const Total = () =>
                     <td><input name="Phone" type='tel' id='Phone' size='18' maxlength='10' class="text" border="5px"></input></td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center"><input class="button" type="submit" name="btnDangNhap" id="btnDangNhap" value="Đăng Nhập"></input></td>
+                    <td colspan="2" align="center"><input class="button" type="submit" name="btnDangNhap" id="btnDangNhap" value="Thanh toán"></input></td>
                 </tr>
             </table>
             </form>

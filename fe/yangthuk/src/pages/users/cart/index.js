@@ -17,7 +17,12 @@ const Cart = () =>
                         <img className='banner' src={process.env.PUBLIC_URL + '/banner.jpg'} alt="banner" />
                     </div>
                     <div className="col-2 body-right">
-                        
+                        <h3>DANH SÁCH MUA HÀNG</h3>
+                        <div>
+                            <img></img>
+                            <p>Tên sản phẩm: </p>
+                            <p>Giá thành: </p>
+                        </div>
                     </div>
                 </div>
                 </div>

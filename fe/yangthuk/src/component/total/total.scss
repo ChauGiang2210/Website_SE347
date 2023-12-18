@@ -16,15 +16,16 @@
     font-size: 16px;
     border-color: map.get($theme-color, "main");
     border-style: groove;
+    background-color: map.get($theme-color, "banner");
     box-sizing: border-box;
 }
 .button
-    {
-        border-radius: 10px;
-        background-color: map.get($theme-color, "content-hover");
-        color: white;
-        width: 100px;
-        height: 30px;
-        border-color: map.get($theme-color, "content-hover");
-        //box-shadow: 2px 2px 5px #04635f;
-    }
+{
+    border-radius: 10px;
+    background-color: map.get($theme-color, "content-hover");
+    color: white;
+    width: 100px;
+    height: 30px;
+    border-color: map.get($theme-color, "content-hover");
+    //box-shadow: 2px 2px 5px #04635f;
+}
