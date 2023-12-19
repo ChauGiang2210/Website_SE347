@@ -2,6 +2,7 @@ import { memo } from "react";
 import Banner from "component/banner/banner";
 import "./cart.scss"
 import Total from "component/total/total";
+import CartProduct from "component/cartProduct/cartProduct";
 
 const Cart = () =>
 {
@@ -10,21 +11,18 @@ const Cart = () =>
             <Banner>
                 GIỎ HÀNG
             </Banner>
-            <div className='cart'>
-            <div className='row'>
-                    <div className="col-1 body-left">
+            <div className='cart row'>
+                    <div className="col-1 cart-left">
                         <Total/>
                         <img className='banner' src={process.env.PUBLIC_URL + '/banner.jpg'} alt="banner" />
                     </div>
-                    <div className="col-2 body-right">
+                    <div className="col-2 cart-right">
                         <h3>DANH SÁCH MUA HÀNG</h3>
                         <div>
-                            <img></img>
-                            <p>Tên sản phẩm: </p>
-                            <p>Giá thành: </p>
+                        <CartProduct index={1}>
+                        </CartProduct>
                         </div>
                     </div>
-                </div>
                 </div>
         </div>
     )

@@ -30,7 +30,7 @@ const Order = () =>
                     <table className="table">
                         <tr>
                             <td>Số lượng:</td>
-                            <td><input name="sl" type='number' id='DuDoan' size='20' maxlength='10' class="text"></input></td>
+                            <td><input name="sl" type='number' id='sl' size='20' maxlength='10' class="text" min="1" value="1"></input></td>
                         </tr>
                         <tr>
                             <td>Thêm vào giỏ hàng:</td>

@@ -4,10 +4,10 @@ import "./total.scss"
 const Total = () =>
 {
     return (
-        <div className='total'>
+        <div className='total row'>
             <h3>TỔNG CỘNG</h3>
             <form>
-            <table className="total-table">
+            <table className="col-1 total-table">
                 <tr>
                     <td>Tổng đơn giá: </td>
                     <td>xxxx</td>

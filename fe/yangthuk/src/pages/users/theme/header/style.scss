@@ -48,18 +48,7 @@ ul
     height: auto;
     padding-top: 15px;
 }
-.move
-{
-    height: 100px;
-    width: 200px;
-    padding: 1px;
-    padding-top: 10px;
-}
-.move.zoomed {
-    transform: scale(1.2);
-    transition: transform 0.3s ease-in-out;
-  }
-  .btn
+.bton
   {
     background-color: rgba(255, 255, 255, 1);
       padding: 10px;
@@ -72,7 +61,7 @@ ul
       //text-align: center;
       //align-items: center;
   }
-  .btn:hover
+  .bton:hover
   {
       background-color: map.get($theme-color, "content-hover");
       transform: scale(1.2);
