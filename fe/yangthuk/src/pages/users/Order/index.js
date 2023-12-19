@@ -33,8 +33,12 @@ const Order = () =>
                             <td><input name="sl" type='number' id='sl' size='20' maxlength='10' class="text" min="1" value="1"></input></td>
                         </tr>
                         <tr>
-                            <td>Thêm vào giỏ hàng:</td>
-                            <td><Link to={""}><MdOutlineShoppingCart className='icon-buy' /></Link></td>
+                        <td><button className="button">Thêm vào giỏ hàng:
+                            <Link to={""}><MdOutlineShoppingCart className='icon-buy' /></Link>
+                            </button></td>
+                            <td><button className="button">Mua ngay:
+                            <Link to={""}><MdOutlineShoppingCart className='icon-buy' /></Link>
+                            </button></td>
                         </tr>
                     </table>
                     </form>
