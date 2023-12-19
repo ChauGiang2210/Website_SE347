@@ -40,7 +40,7 @@ const Header = () =>
     <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className='row'>
             <div className="col-1 header-top-left">
-            <img className='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" />
+            <Link to ={"/"}> <img className='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" /> </Link>
             </div>
             <div className="col-2 header-top-right">
             <ul>
@@ -60,8 +60,8 @@ const Header = () =>
         </div>
         {/* <li><IoSearch className="iosearch"/></li> */}
                 {/* <li ><Link to={""} className="btn">< IoSearch className='icon' /></Link></li> */}
-                <li><Link to={"/cart"} className="btn"><MdOutlineShoppingCart className='icon' /></Link></li>
-                <li><Link to={""} className="btn"><FaRegUser className='icon' /></Link></li>
+                <li><Link to={"/cart"} className="bton"><MdOutlineShoppingCart className='icon' /></Link></li>
+                <li><Link to={""} className="bton"><FaRegUser className='icon' /></Link></li>
             </ul>
             </div>
         </div>

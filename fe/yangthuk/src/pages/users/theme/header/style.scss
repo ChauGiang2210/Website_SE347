@@ -48,7 +48,7 @@ ul
     height: auto;
     padding-top: 15px;
 }
-.btn
+.bton
   {
     background-color: rgba(255, 255, 255, 1);
       padding: 10px;
@@ -61,7 +61,7 @@ ul
       //text-align: center;
       //align-items: center;
   }
-  .btn:hover
+  .bton:hover
   {
       background-color: map.get($theme-color, "content-hover");
       transform: scale(1.2);

@@ -5,5 +5,7 @@ export const ROUTERS =
         PROFILE: "profile",
         ORDER: "order",
         CART: "cart",
+        LOGIN: "login",
+        REGISTER: "register",
     }
 }
