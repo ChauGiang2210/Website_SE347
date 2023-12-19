@@ -14,4 +14,11 @@
       height: 60%;
       margin: 5%;
     }
+    a
+    {
+        font-size: 14px;
+        display: inline-block;
+        color: map.get($theme-color, "content");
+        text-decoration: none;
+    }
   }
