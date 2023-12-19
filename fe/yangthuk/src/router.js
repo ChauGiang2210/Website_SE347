@@ -6,6 +6,9 @@ import Masterlayout from "./pages/users/theme/masterLayout"
 import ProfilePage from "./pages/users/profilePage"
 import Order from "./pages/users/order"
 import Cart from "./pages/users/cart"
+import Login from "./pages/users/login/login.js"
+import Register from "./pages/users/register/register"
+
 
 const renderUserRouter = () =>
 {
@@ -26,7 +29,15 @@ const renderUserRouter = () =>
         {
             path: ROUTERS.USER.CART,
             component: <Cart/>
-        }
+        },
+        {
+            path: ROUTERS.USER.LOGIN,
+            component: <Login/>
+        },
+        {
+            path: ROUTERS.USER.REGISTER,
+            component: <Register/>
+        },
     ]
 
     return (
