@@ -42,10 +42,10 @@
 
     flex: 0 0 47%;
     margin-top: 5%;
-    padding: 5px;
+    padding: 5%;
     border: 2px;
     font-size: 16px;
-    border-color: map.get($theme-color, "main");
+    border-color: rgba(128, 128, 128, 0.445);
     border-style: groove;
     a
     {
@@ -64,4 +64,24 @@
     font-size: 25px;
     //margin-bottom: 10px;
     margin-left: 10px;
+}
+.button
+{
+        display: flex;
+        flex: 0 0 47%;
+        min-width: 150px;
+        height: 50px;
+        border: none;
+        border-radius: 4px;
+        background-color: map.get($theme-color, "content-hover");
+        color: white;
+        font-size: 14px;
+        font-weight: 600;
+        outline: none;
+        margin-left: 5%;
+        margin-top: 40px;
+        padding: 5%;
+}
+.button:hover {
+    background-color: map.get($theme-color, "main");
 }
