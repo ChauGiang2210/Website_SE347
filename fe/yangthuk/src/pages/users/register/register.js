@@ -78,12 +78,12 @@ const Register = () => {
                         </div>
                         <div className="auth-form__controls">
 
+                            <Link to={"/login"} className="link">
                             <button className="btn btn--normal auth-form__controls-back">
 
-                            <Link to={"/login"} className="link">
                                 TRỞ LẠI
-                            </Link>
                             </button>
+                            </Link>
                             <button className="btn btn--primary">ĐĂNG KÝ</button>
                         </div>
                     </form>

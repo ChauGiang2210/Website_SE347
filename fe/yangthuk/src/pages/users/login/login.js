@@ -37,9 +37,11 @@ const Login = () => {
                         </div>
                         <div className="auth-form__aside">
                             <div className="auth-form__help">
+                                <Link to={"/forgotPassword"} className="link">
                                 <a href="" className="auth-form__help-link auth-form__help-forgot">
                                     Quên mật khẩu
                                 </a>
+                                </Link>
                                 <span className="auth-form__help-separate" />
                                 <a href="" className="auth-form__help-link">
                                     Cần trợ giúp?
@@ -47,9 +49,11 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="auth-form__controls">
+                        <Link to={"/"} className="link">
                             <button className="btn btn--normal auth-form__controls-back">
                                 TRỞ LẠI
                             </button>
+                        </Link>
                             <button className="btn btn--primary">ĐĂNG NHẬP</button>
                         </div>
                     </form>
