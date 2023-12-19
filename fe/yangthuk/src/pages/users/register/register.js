@@ -1,8 +1,12 @@
 import React from "react";
 import { memo } from "react";
+import { Link } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 import "./style.css";
 
 const Register = () => {
+    // let history = useHistory();
+
     return (
         <div className="modal">
             <div className="modal__overlay" />
@@ -12,7 +16,9 @@ const Register = () => {
                     <form className="auth-form__container">
                         <div className="auth-form__header">
                             <h3 className="auth-form__heading">Đăng ký</h3>
-                            <span className="auth-form__switch-btn">Đăng nhập</span>
+                            <span className="auth-form__switch-btn">
+                            <Link to={"/login"} className="auth-form__switch-btn">Đăng nhập</Link>
+                                </span>
                         </div>
                         <div className="auth-form__form">
                             <div className="auth-form__group">
@@ -60,19 +66,23 @@ const Register = () => {
                         </div>
                         <div className="auth-form__aside">
                             <p className="auth-form__policy-text">
-                                Bằng việc đăng ký, bạn đã đồng ý với YangThuk về
+                                Bằng việc đăng ký, bạn đã đồng ý với YangThuk về 
                                 <a href="" className="auth-form__text-link">
-                                    Điều khoản dịch vụ
+                                    Điều khoản dịch vụ 
                                 </a>
                                 &amp;
                                 <a href="" className="auth-form__text-link">
-                                    Chính sách bảo mật
+                                     Chính sách bảo mật
                                 </a>
                             </p>
                         </div>
                         <div className="auth-form__controls">
+
                             <button className="btn btn--normal auth-form__controls-back">
+
+                            <Link to={"/login"} className="link">
                                 TRỞ LẠI
+                            </Link>
                             </button>
                             <button className="btn btn--primary">ĐĂNG KÝ</button>
                         </div>

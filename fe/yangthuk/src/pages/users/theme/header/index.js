@@ -57,7 +57,7 @@ const Header = () =>
         {/* <li><IoSearch className="iosearch"/></li> */}
                 {/* <li ><Link to={""} className="btn">< IoSearch className='icon' /></Link></li> */}
                 <li><Link to={""} className="btn"><MdOutlineShoppingCart className='icon' /></Link></li>
-                <li><Link to={""} className="btn"><FaRegUser className='icon' /></Link></li>
+                <li><Link to={"/login"} className="btn"><FaRegUser className='icon' /></Link></li>
             </ul>
             </div>
         </div>

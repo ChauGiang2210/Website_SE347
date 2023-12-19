@@ -68,6 +68,7 @@
     font-size: 14px;
     color: #008874;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .auth-form__switch-btn:hover {
@@ -200,4 +201,10 @@
 
 .auth-form__help-forgot:hover {
     color: #006d66;
+}
+
+.link {
+    /* color: #8e8e8e;
+    font-weight: 400; */
+    text-decoration: none;
 }
