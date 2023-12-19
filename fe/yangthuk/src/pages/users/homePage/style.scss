@@ -75,3 +75,14 @@
   width: 100%;
 
 }
+.move
+{
+    height: 100px;
+    width: 200px;
+    padding: 1px;
+    padding-top: 10px;
+}
+.move.zoomed {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+  }

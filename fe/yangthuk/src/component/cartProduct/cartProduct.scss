@@ -1,0 +1,36 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.cartProduct
+{
+    border: 1px;
+    border-color: map.get($theme-color, "main");
+    border-style: groove;
+    margin: 2%;
+    padding: 0.5%;
+}
+.cartImage
+{
+    flex: 0 0 30%;
+    max-width: 12%;
+    border: 1px;
+    border-color: map.get($theme-color, "main");
+    border-style: groove;
+}
+.cartInfo
+{
+    flex: 0 0 70%;
+    margin-left: 2%;
+}
+.tick
+{
+    width: 20px;
+    flex: 0 0 3%;;
+    justify-content: end;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    input[type="checkbox"] {
+        width: 25px; /* Điều chỉnh chiều rộng */
+        height: 25px; /* Điều chỉnh chiều cao */
+      }
+}

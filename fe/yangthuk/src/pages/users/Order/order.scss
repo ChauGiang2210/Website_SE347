@@ -47,6 +47,16 @@
     font-size: 16px;
     border-color: map.get($theme-color, "main");
     border-style: groove;
+    a
+    {
+        font-size: 14px;
+        display: inline-block;
+        color: map.get($theme-color, "content");
+        text-decoration: none;
+    }
+    a:hover{
+        color: map.get($theme-color, "content-hover");
+    }
 
 }
 .icon-buy

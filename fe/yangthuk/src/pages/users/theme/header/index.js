@@ -5,6 +5,10 @@ import { IoSearch } from "react-icons/io5";
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import {Routes, Route} from "react-router-dom"
+import cart from "pages/users/cart";
+
+
 
 const Header = () =>
 {
@@ -56,7 +60,7 @@ const Header = () =>
         </div>
         {/* <li><IoSearch className="iosearch"/></li> */}
                 {/* <li ><Link to={""} className="btn">< IoSearch className='icon' /></Link></li> */}
-                <li><Link to={""} className="btn"><MdOutlineShoppingCart className='icon' /></Link></li>
+                <li><Link to={"/cart"} className="btn"><MdOutlineShoppingCart className='icon' /></Link></li>
                 <li><Link to={""} className="btn"><FaRegUser className='icon' /></Link></li>
             </ul>
             </div>
@@ -77,50 +81,18 @@ const Header = () =>
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
-        <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move1.jpg"}
-            id="move1"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move2.jpg"}
-            id="move2"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move3.jpg"}
-            id="move3"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move4.jpg"}
-            id="move4"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move5.jpg"}
-            id="move1"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move6.jpg"}
-            id="move2"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move7.jpeg"}
-            id="move2"
-          />
-          <img
-            className={`move ${isHovered ? "zoomed" : ""}`}
-            src={process.env.PUBLIC_URL + "/move8.jpg"}
-            id="move2"
-          />
-          {/* ... (Các ảnh khác trong marquee) */}
+          {Array.from({ length: 8 }, (_, index) => (
+            <img
+              key={`move${index + 1}`}
+              className={`move ${isHovered ? "zoomed" : ""}`}
+              src={process.env.PUBLIC_URL + `/move${index + 1}.jpg`}
+              id={`move${index + 1}`}
+            />
+          ))}
         </marquee>
     </div>
     </div>
+
     </div>
     );
 };
