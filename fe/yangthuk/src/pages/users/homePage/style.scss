@@ -38,7 +38,6 @@
 }
 
 #menu a {
-
   display: list-item;
   list-style-position: inside;
   color: map.get($theme-color, "content");
@@ -50,28 +49,37 @@
   font-size: 13px;
   background-image: linear-gradient(to right, rgba(255, 245, 245, 1), rgba(255, 245, 245, 0.5));
   list-style-type: none;
-
 }
 
 #menu a:hover {
-    
   background-color: rgba(255, 255, 255, 0.5);
   color: map.get($theme-color, "content-hover");
   transition: 0.5s;
-
 }
 
 .icon-container {
-
   position: absolute;
   top: 25%;
   left: 25%;
   transform: translate(-25%, -25%);
-
+  /* Để căn giữa theo trục x và y */
 }
 
 .banner {
-
   width: 100%;
+}
 
+.product {
+  width: 200px;
+  height: 250px;
+  margin: 10px;
+  border: 1px;
+  border-color: map.get($theme-color, "main");
+  border-style: groove;
+
+  .product-img {
+    width: 90%;
+    height: 60%;
+    margin: 5%;
+  }
 }

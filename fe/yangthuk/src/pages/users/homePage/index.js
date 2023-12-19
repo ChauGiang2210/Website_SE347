@@ -2,7 +2,7 @@ import { memo } from "react";
 import "./style.scss";
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
-import Product from "../../../component/product/product";
+import Product from "./product";
 
 const HomePage = () => {
     return (
