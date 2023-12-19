@@ -1,6 +1,8 @@
 import React from "react";
 import { memo } from "react";
+import { Link } from "react-router-dom";
 import "./style.css";
+// import style from "./style.module.css";
 
 const Login = () => {
     return (
@@ -11,7 +13,11 @@ const Login = () => {
                     <form className="auth-form__container">
                         <div className="auth-form__header">
                             <h3 className="auth-form__heading">Đăng nhập</h3>
-                            <span className="auth-form__switch-btn">Đăng ký</span>
+                            
+                            <span className="auth-form__switch-btn">
+                                <Link to={"/register"} className="auth-form__switch-btn">Đăng ký</Link>
+                                </span>
+                            
                         </div>
                         <div className="auth-form__form">
                             <div className="auth-form__group">
