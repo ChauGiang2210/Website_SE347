@@ -16,7 +16,7 @@ const Login = () => {
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     }
-    
+
     return (
         <div className="modal">
             <div className="modal__overlay" />
@@ -53,10 +53,10 @@ const Login = () => {
                         </div>
                         <div className="auth-form__aside">
                             <div className="auth-form__help">
-                                <Link to={"/forgotPassword"} className="link">
-                                <a href="" className="auth-form__help-link auth-form__help-forgot">
+                                <Link to={"/forgotPassword"} className="link auth-form__help-link auth-form__help-forgot">
+                                {/* <a href="" className="auth-form__help-link auth-form__help-forgot"> */}
                                     Quên mật khẩu
-                                </a>
+                                {/* </a> */}
                                 </Link>
                                 <span className="auth-form__help-separate" />
                                 <a href="" className="auth-form__help-link">
