@@ -78,6 +78,7 @@ const Header = () =>
           width="100%"
           loop="-1"
           direction="right"
+          scrollamount="1"
           onMouseOver={handleMouseOver}
           onMouseOut={handleMouseOut}
         >
