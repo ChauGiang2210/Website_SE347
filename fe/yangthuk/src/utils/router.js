@@ -7,5 +7,6 @@ export const ROUTERS =
         CART: "cart",
         LOGIN: "login",
         REGISTER: "register",
+        FORGOTPASSWORD: "forgotpassword",
     }
 }

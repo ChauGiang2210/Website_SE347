@@ -8,6 +8,7 @@ import Order from "./pages/users/order"
 import Cart from "./pages/users/cart"
 import Login from "./pages/users/login/login.js"
 import Register from "./pages/users/register/register"
+import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 
 
 const renderUserRouter = () =>
@@ -38,16 +39,18 @@ const renderUserRouter = () =>
             path: ROUTERS.USER.REGISTER,
             component: <Register/>
         },
+        {
+            path: ROUTERS.USER.FORGOTPASSWORD,
+            component: <ForgotPassword/>
+        },
     ]
 
     return (
         <Masterlayout>
         <Routes>
             {
-                userRouters.map((item,key) => 
-                (
-                    <Route key={key} path={item.path} element={item.component}/>
-                ))
+                userRouters.map(
+                    (item,key) => <Route key={key} path={item.path} element={item.component}/>)
             }
         </Routes>
         </Masterlayout>
