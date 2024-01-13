@@ -10,8 +10,9 @@ const Product = () => {
     <div class="card"><Link to={"/order"}>
       <img src={process.env.PUBLIC_URL + '/move1.jpg'} class="card-img-top" alt="..."/>
       <div class="card-body product-content">
-        <h5 class="card-title ">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title ">Son Black Rouge</h5>
+        <p class="card-text">Thương hiệu: Black Rouge</p>
+        <p class="card-text">Giá thành: 168.000 VNĐ</p>
       </div>
       </Link>
     </div>
@@ -20,9 +21,10 @@ const Product = () => {
     <div class="card"><Link to={"/order"}>
       <img src={process.env.PUBLIC_URL + '/move1.jpg'} class="card-img-top" alt="..."/>
       <div class="card-body product-content">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+        <h5 class="card-title ">Son Black Rouge</h5>
+        <p class="card-text">Thương hiệu: Black Rouge</p>
+        <p class="card-text">Giá thành: 168.000 VNĐ</p>
+          </div>
       </Link>
     </div>
   </div>
@@ -30,9 +32,10 @@ const Product = () => {
     <div class="card"><Link to={"/order"}>
       <img src={process.env.PUBLIC_URL + '/move1.jpg'} class="card-img-top" alt="..."/>
       <div class="card-body product-content">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
+      <h5 class="card-title ">Son Black Rouge</h5>
+        <p class="card-text">Thương hiệu: Black Rouge</p>
+        <p class="card-text">Giá thành: 168.000 VNĐ</p>
+          </div>
       </Link>
     </div>
   </div>
@@ -40,9 +43,10 @@ const Product = () => {
     <div class="card"><Link to={"/order"}>
       <img src={process.env.PUBLIC_URL + '/move1.jpg'} class="card-img-top" alt="..."/>
       <div class="card-body product-content">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
+        <h5 class="card-title ">Son Black Rouge</h5>
+        <p class="card-text">Thương hiệu: Black Rouge</p>
+        <p class="card-text">Giá thành: 168.000 VNĐ</p>
+         </div>
       </Link>
     </div>
   </div>

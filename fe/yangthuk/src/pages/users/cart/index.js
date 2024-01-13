@@ -14,7 +14,7 @@ const Cart = () =>
         <div>
             <nav style={breadcrumbDividerStyle} aria-label="breadcrumb">
             <ol className="breadcrumb dir" >
-                <li className="breadcrumb-item"><a href="/">Trang chủ</a></li>
+                <li className="breadcrumb-item"><a href="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</a></li>
                 <li className="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
             </ol>
             </nav>

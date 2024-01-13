@@ -11,7 +11,7 @@ const HomePage = () => {
         <div className="Home">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb dir">
-                    <li className="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                <li className="breadcrumb-item"><a href="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</a></li>
                 </ol>
             </nav>
             
@@ -74,7 +74,7 @@ const HomePage = () => {
                             <a href="">Loại da <SlArrowRight /></a>
                             <a href="">HOT DEAL <SlArrowRight /></a> */}
                         </nav>
-                        <img className='banner img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
+                        <img className='img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
                     </div>
                     <div className="col-2 body-right">
                         <Product />

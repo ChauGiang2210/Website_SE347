@@ -32,14 +32,17 @@ const Header = () =>
             <li class="nav-item">
               <a class="nav-link" href="/admin">Quản lý</a>
             </li>
+            <li class="nav-item">
+              <Link to = "/user" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}><a class="nav-link" >User</a></Link>
+            </li>
           </ul>
               
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
             <button class="btn btn-outline-success btn_cus" type="submit">Search</button>
           </form>
-          <Link to ={"/cart"}><button class="btn btn-link btn_icon" type="submit"><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
-          <Link to ={"/login"}><button class="btn btn-link btn_icon" type="submit"><FaRegUser className='icon' />Log in</button></Link>
+          <Link to ={"/cart"}><button class="btn btn-link btn_icon" type="submit" style={{textDecoration: "none", color: "black" ,fontSize: '16px'}}><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
+          <Link to ={"/login"}><button class="btn btn-link btn_icon" type="submit"style={{textDecoration: "none", color: "black" ,fontSize: '16px'}}><FaRegUser className='icon' />Log in</button></Link>
         </div>
       </div>
     </nav>
