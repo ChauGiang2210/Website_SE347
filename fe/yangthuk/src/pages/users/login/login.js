@@ -5,6 +5,18 @@ import "./style.css";
 // import style from "./style.module.css";
 
 const Login = () => {
+    const [email, setEmail] = React.useState("");
+    const [password, setPassword] = React.useState("");
+
+    const handleEmailChange = (e) => {
+        // console.log(e.target.value);
+        return setEmail(e.target.value);
+    }
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    }
+
     return (
         <div className="modal">
             <div className="modal__overlay" />
@@ -25,6 +37,8 @@ const Login = () => {
                                     type="email"
                                     className="auth-form__input"
                                     placeholder="Nhập email của bạn"
+                                    value={email}
+                                    onChange={handleEmailChange}
                                 />
                             </div>
                             <div className="auth-form__group">
@@ -32,6 +46,8 @@ const Login = () => {
                                     type="password"
                                     className="auth-form__input"
                                     placeholder="Nhập mật khẩu của bạn"
+                                    value={password}
+                                    onChange={handlePasswordChange}
                                 />
                             </div>
                         </div>
@@ -54,7 +70,10 @@ const Login = () => {
                                 TRỞ LẠI
                             </button>
                         </Link>
-                            <button className="btn btn--primary">ĐĂNG NHẬP</button>
+                            <button 
+                                className="btn btn--primary" 
+                                // onClick={handleLoginClick}
+                            >ĐĂNG NHẬP</button>
                         </div>
                     </form>
                 </div>
