@@ -1,0 +1,18 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.Manage
+{
+    margin: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.btn_cus
+{
+    margin: 1%;
+    &:hover {
+        color: map.get($theme-color, "content") !important;
+        background-color: map.get($theme-color, "content-hover") !important;
+        border-color: map.get($theme-color, "content") !important;
+      }
+}

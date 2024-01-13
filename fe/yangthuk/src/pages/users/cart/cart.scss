@@ -54,3 +54,9 @@
   margin-right: 0;
   box-sizing: border-box;
 }
+.dir
+{
+  margin-left: 20px;
+  color: map.get($theme-color, "content") !important;
+  text-decoration: none !important;
+}

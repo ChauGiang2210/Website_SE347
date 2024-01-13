@@ -7,6 +7,15 @@ export const ROUTERS =
         CART: "cart",
         LOGIN: "login",
         REGISTER: "register",
-        FORGOTPASSWORD: "forgotpassword",
+        USER: "user",
+       FORGOTPASSWORD: "forgotpassword",
+    },
+    ADMIN:{
+        HOME: "admin",
+        CARTMANAGE: "admin/cartmanage",
+        USERMANAGE: "admin/usermanage",
+        ADDUSER: "admin/usermanage/adduser",
+        ADDPRODUCT: "admin/productmanage/addproduct",
+        ADDORDER: "admin/cartmanage/addorder",
     }
 }
