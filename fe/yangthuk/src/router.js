@@ -15,6 +15,7 @@ import AddUser from "pages/admin/addUser";
 import UserInfo from "pages/users/userInfo";
 import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
+import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -46,6 +47,10 @@ const renderUserRouter = () => {
       path: ROUTERS.USER.USER,
       component: <UserInfo />
     },
+     {
+            path: ROUTERS.USER.FORGOTPASSWORD,
+            component: <ForgotPassword/>
+     },
   ];
 
   return (

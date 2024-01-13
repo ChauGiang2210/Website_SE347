@@ -197,6 +197,7 @@
 
 .auth-form__help-forgot {
     color: #008874;
+    text-decoration: none;
 }
 
 .auth-form__help-forgot:hover {
