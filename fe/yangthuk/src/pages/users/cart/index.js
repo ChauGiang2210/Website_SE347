@@ -12,7 +12,7 @@ const Cart = () =>
                 GIỎ HÀNG
             </Banner>
             <div className='cart row'>
-                    <div className="col-1 cart-left">
+                    {/* <div className="col-1 cart-left">
                         <Total/>
                         <img className='banner' src={process.env.PUBLIC_URL + '/banner.jpg'} alt="banner" />
                     </div>
@@ -22,6 +22,15 @@ const Cart = () =>
                         <CartProduct index={1}>
                         </CartProduct>
                         </div>
+                    </div> */}
+                    <div className="cartLeft">
+                        <h3>DANH SÁCH MUA HÀNG</h3>
+                        <CartProduct index={1}></CartProduct>
+                        <CartProduct index={0}></CartProduct>
+                    </div>
+                    <div className="cartRight">
+                        <h3>TỔNG CỘNG</h3>
+                        <Total/>
                     </div>
                 </div>
         </div>

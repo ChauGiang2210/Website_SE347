@@ -6,8 +6,8 @@ const Product = () => {
     return (
         <div className="product"><Link to={"/order"}>
             <img className='product-img' src={process.env.PUBLIC_URL + '/move1.jpg'}></img>
-            <p className="name">Name</p>
-            <p className="price">Price</p></Link>
+            <p className="name">Tên sản phẩm:</p>
+            <p className="price">Giá:</p></Link>
         </div>
     )
 };
