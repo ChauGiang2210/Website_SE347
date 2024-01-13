@@ -1,0 +1,35 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.footer
+{
+    background: rgba(3,140,127,0.5);
+    padding-right: 50px;
+    font-size: 10px;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    //padding-top: 20px;
+}
+.footer-right
+{
+    //background: rgba(3,140,127,0.5);
+    padding-top: 10px;
+    display: grid;
+    p 
+    {
+        padding-left: 40px;
+        padding-bottom: 10px;
+    }
+}
+.footer-left
+{
+    padding-top: 10px;
+    background: rgba(3,140,127,1);
+    display: grid;
+    p 
+    {
+        padding-left: 10%;
+        padding-bottom: 10px;
+    }
+}

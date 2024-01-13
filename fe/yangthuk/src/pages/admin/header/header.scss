@@ -1,0 +1,12 @@
+@use "sass:map";
+@import "style/pages/theme";
+
+.btn-custom
+{
+
+    &:hover {
+        color: map.get($theme-color, "content") !important;
+        background-color: map.get($theme-color, "content-hover") !important;
+        border-color: map.get($theme-color, "content") !important;
+      }
+}

@@ -7,94 +7,45 @@ import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import {Routes, Route} from "react-router-dom"
 import cart from "pages/users/cart";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const Header = () =>
 {
-    const [isHovered, setIsHovered] = useState(false);
-
-  const handleMouseOver = () => {
-    setIsHovered(true);
-  };
-
-  const handleMouseOut = () => {
-    setIsHovered(false);
-  };
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    setIsScrolled(scrollPosition > 0);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-    return (
-    <div>
-    <div className="header_top">
-    <div className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-        <div className='row'>
-            <div className="col-1 header-top-left">
-            <Link to ={"/"}> <img className='logo' src={process.env.PUBLIC_URL + '/logo.png'} alt="Logo" /> </Link>
-            </div>
-            <div className="col-2 header-top-right">
-            <ul>
-            <div className="search">
-            <form >
-              <input
-                type="text"
-                name="search"
-                placeholder="Tìm kiếm ..."
-                //defaultValue={setSearch}
-               // onChange={(e) => setSearch(e.target.value)}
-              ></input>
+  return (
+  <>
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid" >
+      {/* style={{backgroundColor: "rgba(3,140,127,0.5)", padding: "0.5%"}} */}
+        <a class="navbar-brand" href="#">YangThuk</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Trang chủ</a>
+            </li>
+            <li class="nav-item">
+              <Link to = "/order" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}><a class="nav-link" >Sản phẩm</a></Link>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin">Quản lý</a>
+            </li>
+          </ul>
               
-              {/* <button type="submit" onClick={(e) => SearchProduct(e)}>Search</button> */}
-            </form>
-            
+          <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+            <button class="btn btn-outline-success btn_cus" type="submit">Search</button>
+          </form>
+          <Link to ={"/cart"}><button class="btn btn-link btn_icon" type="submit"><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
+          <Link to ={"/login"}><button class="btn btn-link btn_icon" type="submit"><FaRegUser className='icon' />Log in</button></Link>
         </div>
-        {/* <li><IoSearch className="iosearch"/></li> */}
-                {/* <li ><Link to={""} className="btn">< IoSearch className='icon' /></Link></li> */}
-                <li><Link to={"/cart"} className="bton"><MdOutlineShoppingCart className='icon' /></Link></li>
-                <li><Link to={"/login"} className="bton"><FaRegUser className='icon' /></Link></li>
-            </ul>
-            </div>
-        </div>
-    </div>
-
-    </div >
-    <div className="head-content">
-    <div className="Head-Image container">
+      </div>
+    </nav>
+    <div className="Head-Image-container" >
         <img className='mp' src={process.env.PUBLIC_URL + '/mypham.jpg'} alt="Logo" />
     </div>
-    <div className="move-image">
-        <marquee
-          behavior="alternate"
-          width="100%"
-          loop="-1"
-          direction="right"
-          scrollamount="1"
-          onMouseOver={handleMouseOver}
-          onMouseOut={handleMouseOut}
-        >
-          {Array.from({ length: 8 }, (_, index) => (
-            <img
-              key={`move${index + 1}`}
-              className={`move ${isHovered ? "zoomed" : ""}`}
-              src={process.env.PUBLIC_URL + `/move${index + 1}.jpg`}
-              id={`move${index + 1}`}
-            />
-          ))}
-        </marquee>
-    </div>
-    </div>
-
-    </div>
-    );
+    </>)
 };
 export default memo(Header);

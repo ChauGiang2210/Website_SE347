@@ -2,7 +2,7 @@ import { memo } from "react";
 import Header from "../header";
 import Footer from "../footer";
 
-const MasterLayout = ({ children, ...props }) => {
+const AdminLayout = ({ children, ...props }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }} {...props}>
       <Header />
@@ -14,4 +14,4 @@ const MasterLayout = ({ children, ...props }) => {
   );
 };
 
-export default memo(MasterLayout);
+export default memo(AdminLayout);

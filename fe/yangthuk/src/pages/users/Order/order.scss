@@ -37,12 +37,12 @@
     }
 
 }
-.table
+.table_order
 {
 
-    flex: 0 0 47%;
-    margin-top: 5%;
-    padding: 5%;
+    //flex: 0 0 47%;
+    margin: 5% !important;
+    padding: 5% !important;
     border: 2px;
     font-size: 16px;
     border-color: rgba(128, 128, 128, 0.445);
@@ -84,4 +84,34 @@
 }
 .button:hover {
     background-color: map.get($theme-color, "main");
+}
+.banner
+{
+    margin: 5%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.btn_cus_
+{
+    background-color: rgb(228, 219, 219) !important;
+    margin: 2%;
+    margin-left:  0;
+    &:hover {
+        color: map.get($theme-color, "content") !important;
+        background-color: map.get($theme-color, "content-hover") !important;
+        border-color: map.get($theme-color, "content") !important;
+      }
+}
+.dir
+{
+        margin-left: 20px;
+        color: map.get($theme-color, "content") !important;
+        text-decoration: none !important;
+}
+.form_buy
+{
+    border: 1px;
+    border-style:solid;
+    padding: 10px;
+    box-sizing: border-box;
 }
