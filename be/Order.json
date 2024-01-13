@@ -1,0 +1,114 @@
+[
+    {
+        "user": "63f15954a154a854f54654f4",
+        "orderItems": [
+            {
+                "name": "Kem dưỡng ẩm La Roche-Posay",
+                "qty": 2,
+                "price": 350000,
+                "product": "63f15954a154a854f54654f5"
+            },
+            {
+                "name": "Sữa rửa mặt Cetaphil",
+                "qty": 1,
+                "price": 250000,
+                "product": "63f15954a154a854f54654f7"
+            }
+        ],
+        "shippingAddress": {
+            "fullName": "Nguyễn Văn A",
+            "phone": "0987654321",
+            "address": "123 Nguyễn Trãi, Quận 1, TP. HCM"
+        },
+        "paymentMethod": "COD",
+        "itemsPrice": 950000,
+        "shippingPrice": 30000,
+        "taxPrice": 50000,
+        "totalPrice": 1030000,
+        "isPaid": true,
+        "paidAt": "2024-01-12T17:10:00.000Z",
+        "isDelivered": false,
+        "deliveredAt": null
+    },
+    {
+        "user": "63f15954a154a854f54654f5",
+        "orderItems": [
+            {
+                "name": "Điện thoại iPhone 14 Pro Max",
+                "qty": 1,
+                "price": 35000000,
+                "product": "63f15954a154a854f54654f6"
+            }
+        ],
+        "shippingAddress": {
+            "fullName": "Trần Thị B",
+            "phone": "0123456789",
+            "address": "456 Lê Lợi, Quận 2, TP. HCM"
+        },
+        "paymentMethod": "Visa",
+        "itemsPrice": 35000000,
+        "shippingPrice": 500000,
+        "taxPrice": 750000,
+        "totalPrice": 4325000,
+        "isPaid": true,
+        "paidAt": "2024-01-13T17:10:00.000Z",
+        "isDelivered": true,
+        "deliveredAt": "2024-01-14T17:10:00.000Z"
+    },
+    {
+        "user": "63f15954a154a854f54654f7",
+        "orderItems": [
+            {
+                "name": "Máy tính xách tay Dell XPS 13",
+                "qty": 1,
+                "price": 30000000,
+                "product": "63f15954a154a854f54654f9"
+            },
+            {
+                "name": "Tai nghe Bluetooth Apple AirPods Pro",
+                "qty": 1,
+                "price": 7500000,
+                "product": "63f15954a154a854f546550"
+            }
+        ],
+        "shippingAddress": {
+            "fullName": "Hoàng Thị D",
+            "phone": "01654321987",
+            "address": "1011 Nguyễn Thị Minh Khai, Quận 4, TP. HCM"
+        },
+        "paymentMethod": "Momo",
+        "itemsPrice": 37500000,
+        "shippingPrice": 100000,
+        "taxPrice": 150000,
+        "totalPrice": 40150000,
+        "isPaid": false,
+        "paidAt": null,
+        "isDelivered": false,
+        "deliveredAt": null
+    },
+    {
+        "user": "63f15954a154a854f54654f8",
+        "orderItems": [
+            {
+                "name": "Đồ ăn vặt",
+                "qty": 10,
+                "price": 50000,
+                "product": "63f15954a154a854f546551"
+            }
+        ],
+        "shippingAddress": {
+            "fullName": "Phan Văn E",
+            "phone": "0912345678",
+            "address": "1234567890 Nguyễn Văn Linh, Quận 5, TP. HCM"
+        },
+        "paymentMethod": "COD",
+        "itemsPrice": 500000,
+        "shippingPrice": 20000,
+        "taxPrice": 30000,
+        "totalPrice": 553000,
+        "isPaid": true,
+        "paidAt": "2024-01-15T17:10:00.000Z",
+        "isDelivered": true,
+        "deliveredAt": "2024-01-16T17:10:00.000Z"
+    }
+]

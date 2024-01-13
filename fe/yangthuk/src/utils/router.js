@@ -7,7 +7,8 @@ export const ROUTERS =
         CART: "cart",
         LOGIN: "login",
         REGISTER: "register",
-        USER: "user"
+        USER: "user",
+       FORGOTPASSWORD: "forgotpassword",
     },
     ADMIN:{
         HOME: "admin",
