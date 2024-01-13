@@ -14,11 +14,12 @@
       height: 60%;
       margin: 5%;
     }
-    a
-    {
+   
+  }
+  .product-content
+  {
         font-size: 14px;
         display: inline-block;
-        color: map.get($theme-color, "content");
-        text-decoration: none;
-    }
+        color: map.get($theme-color, "content") !important;
+        text-decoration: none !important;
   }
