@@ -8,6 +8,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 // import {Routes, Route} from "react-router-dom"
 // import cart from "pages/users/cart";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import LogOut from "component/logOut/index";
 
 
 const Header = () =>
@@ -43,6 +44,7 @@ const Header = () =>
           </form>
           <Link to ={"/cart"}><button className="btn btn-link btn_icon" type="submit" style={{textDecoration: "none", color: "black" ,fontSize: '16px'}}><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
           <Link to ={"/login"}><button className="btn btn-link btn_icon" type="submit"style={{textDecoration: "none", color: "black" ,fontSize: '16px'}}><FaRegUser className='icon' />Log in</button></Link>
+          <LogOut/>
         </div>
       </div>
     </nav>
