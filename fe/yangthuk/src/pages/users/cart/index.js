@@ -25,8 +25,8 @@ const Cart = () =>
             <div className='cart row'>
                     <div className="cartLeft">
                         <h3>DANH SÁCH MUA HÀNG</h3>
-                        <CartProduct index={1}></CartProduct>
-                        <CartProduct index={0}></CartProduct>
+                        <CartProduct name={"son kem black rouge"} brand={"Black rouge"} type={"son"} price={"139.000 VNĐ"} img={process.env.PUBLIC_URL + "/cart1.jpg"}></CartProduct>
+                        <CartProduct name={"son kem black rouge"} brand={"Black rouge"} type={"son"} price={"139.000 VNĐ"} img={process.env.PUBLIC_URL + "/cart2.jpg"}></CartProduct>
                     </div>
                     <div className="cartRight">
                         <h3>THÀNH TIỀN</h3>

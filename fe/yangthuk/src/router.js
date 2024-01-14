@@ -106,13 +106,13 @@ const renderAdminRouter = () => {
 
 function App()  {
     const isAdminRoute = window.location.pathname.startsWith("/admin");
-    useEffect(() => {
-      const fetchData = async () => {
-        const result = await fetch('https://api.example.com/data');
-        // Xử lý kết quả
-      };
-      fetchData();
-    }, []); 
+    // useEffect(() => {
+    //   const fetchData = async () => {
+    //     const result = await fetch('https://api.example.com/data');
+    //     // Xử lý kết quả
+    //   };
+    //   fetchData();
+    // }, []); 
     return (
       <>
         {isAdminRoute ? renderAdminRouter() : renderUserRouter()}
