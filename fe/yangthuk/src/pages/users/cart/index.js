@@ -18,22 +18,11 @@ const Cart = () =>
                 <li className="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
             </ol>
             </nav>
-            <div class="banner">
+            <div className="banner">
             <h3>THÔNG TIN SẢN PHẨM</h3>
-            <hr class="border border-secondary border-2 opacity-50"></hr>
+            <hr className="border border-secondary border-2 opacity-50"></hr>
             </div>
             <div className='cart row'>
-                    {/* <div className="col-1 cart-left">
-                        <Total/>
-                        <img className='banner' src={process.env.PUBLIC_URL + '/banner.jpg'} alt="banner" />
-                    </div>
-                    <div className="col-2 cart-right">
-                        <h3>DANH SÁCH MUA HÀNG</h3>
-                        <div>
-                        <CartProduct index={1}>
-                        </CartProduct>
-                        </div>
-                    </div> */}
                     <div className="cartLeft">
                         <h3>DANH SÁCH MUA HÀNG</h3>
                         <CartProduct index={1}></CartProduct>
