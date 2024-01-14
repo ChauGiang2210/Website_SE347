@@ -1,11 +1,22 @@
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import "./style.scss";
 import React from "react";
 import { SlArrowRight } from "react-icons/sl";
 import Product from "../../../component/product/product";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { getAllProducts } from "../../../services/product";
 
 const HomePage = () => {
+    const [products, setProducts] = React.useState([]);
+    const fetchAllProducts = async () => {
+        const res = await getAllProducts();
+        // console.log(res);
+        if (res?.data?.data) setProducts(res.data.data)
+    }
+    useEffect(() => {
+        fetchAllProducts()
+    }, []);
+
     return (
         <div className="Home">
             <nav aria-label="breadcrumb">
@@ -68,15 +79,14 @@ const HomePage = () => {
                                 <li><a className="dropdown-item" href="#">Mua 1 tặng 1</a></li>
                             </ul>
                             </div>
-                            {/* <a href="">Thương hiệu <SlArrowRight /></a>
-                            <a href="">Loại sản phẩm <SlArrowRight /></a>
-                            <a href="">Loại da <SlArrowRight /></a>
-                            <a href="">HOT DEAL <SlArrowRight /></a> */}
                         </nav>
                         <img className='img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
                     </div>
                     <div className="col-2 body-right">
-                        <Product name={"Son kem Black Rouge"} price={"239.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/>
+                        {/* <Product name={"Son kem Black Rouge"} price={"239.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/> */}
+                        {products.map((item, index) => (
+                            <Product key={index} name={item.name} price={item.price} brand={item.brand} srcImg={item.image}/>
+                        ))}
                     </div>
                 </div>
             </div>
