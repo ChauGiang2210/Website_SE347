@@ -1,12 +1,24 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Banner from "component/banner/banner";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
+import Delete from "component/delete/index";
 
 
 const UserManage = () => {
+    const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
+    const handleDeleteClick = () => {
+        // Mở modal xóa khi click vào liên kết "Xóa"
+        setDeleteModalVisible(true);
+    };
+
+    const handleDeleteConfirm = () => {
+        // Thực hiện hành động xóa ở đây
+        // Đóng modal xóa
+        setDeleteModalVisible(false);
+    };
     const admin_name = "Ngọc Thức"
     const admin_email = "abc@gmail.com"
     const admin_password = "123456"
@@ -51,8 +63,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">2</th>
@@ -60,8 +72,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">3</th>
@@ -69,8 +81,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>
@@ -97,7 +109,7 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
                     <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
@@ -106,7 +118,7 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
                     <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
@@ -115,7 +127,7 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="/admin/usermanage/fixuser" className="card-link">Sửa</Link></td>
                     <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                 </tbody>
@@ -123,7 +135,9 @@ const UserManage = () => {
             </div>
             </div>
       </div>
-    
+      {isDeleteModalVisible && (
+                <Delete onClose={() => setDeleteModalVisible(false)} onConfirm={handleDeleteConfirm} />
+            )}
     </>
   );
 };
