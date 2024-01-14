@@ -95,7 +95,7 @@ class ProductController {
   async getProductById(req, res) {
     try {
 
-      const product = await ProductService.getById(res.params.id);
+      const product = await ProductService.getById(req.params.id);
 
       res.json({
         success: true,

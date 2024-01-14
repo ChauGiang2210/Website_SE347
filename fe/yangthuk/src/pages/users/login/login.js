@@ -1,15 +1,23 @@
 import React from "react";
 import { memo, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
 import { login } from "../../../services/login";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
+import { useMutation } from '@tanstack/react-query'
+import { useMutationHook } from '../../../hooks/useMutationHook';
+import { jwtDecode } from "jwt-decode";
+import { useNavigate } from "react-router-dom";
+import { getDetailUser } from "../../../services/user";
+import { useDispatch } from "react-redux";
+import { updateUser } from "../../../redux/slides/userSlide";
 // import style from "./style.module.css";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const dispatch = useDispatch();
 
     function isValidForm() {
         return email &&
@@ -28,35 +36,52 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
+    const mutation = useMutationHook( 
+        data => login(data),
+      )
+    
+    const navigate = useNavigate();
+    
     const handleLoginClick = async () => {
-        // const data = await login({ email, password });
-        // alert(email, password)
-        // console.log(data);
-        const data = { email, password };
-        const loginApi = 'http://localhost:3001/api/user/login'
-        await fetch(loginApi, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-        })
-            .then(function (response) {
-                return response.json();
-            })
-            .then(function (data) {
-                console.log(data);
-
-            })
-            .catch(function (err) {
-                console.log('Có lỗi xảy ra');
-            })
+        mutation.mutate({email, password})
     }
+
+    const handleGetDetailUser = async (id, token) => {
+        const data = await getDetailUser(id)
+        // console.log(data.user);
+        dispatch(updateUser({...data.user, access_token: token}))
+    }
+
+    useEffect(() => {
+        if (mutation.isSuccess) {
+            // console.log(mutation.data.finalData.access_token);
+            // console.log(mutation.data?.access_token);
+            localStorage.setItem("token", mutation.data.finalData.access_token);
+            alert("Đăng nhập thành công");
+            // window.location.href = "/";
+            navigate("/")
+        }
+        if (mutation.data?.finalData.access_token) {
+            const decoded = jwtDecode(mutation.data.finalData.access_token);
+            // console.log(decoded);
+            if (decoded?.id)
+            {
+                handleGetDetailUser(decoded.id, mutation.data.finalData.access_token);
+            }
+            // localStorage.setItem("user", JSON.stringify(decoded));
+        }
+        if (mutation.isError) {
+            alert("Đăng nhập thất bại");
+        }
+    }, [mutation.isSuccess, mutation.isError])
+    
 
     return (
         <div className="modal">
             <div className="modal__overlay" />
             <div className="modal__body">
                 <div className="auth-form">
-                    <form className="auth-form__container">
+                    <div className="auth-form__container">
                         <div className="auth-form__header">
                             <h3 className="auth-form__heading">Đăng nhập</h3>
 
@@ -111,7 +136,7 @@ const Login = () => {
 
                             >ĐĂNG NHẬP</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
