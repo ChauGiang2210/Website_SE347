@@ -16,6 +16,8 @@ import UserInfo from "pages/users/userInfo";
 import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
+import { useEffect } from "react";
+
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -103,9 +105,15 @@ const renderAdminRouter = () => {
   );
 };
 
-const RouterCustom = () => {
+function App()  {
     const isAdminRoute = window.location.pathname.startsWith("/admin");
-
+    useEffect(() => {
+      const fetchData = async () => {
+        const result = await fetch('https://api.example.com/data');
+        // Xử lý kết quả
+      };
+      fetchData();
+    }, []); 
     return (
       <>
         {isAdminRoute ? renderAdminRouter() : renderUserRouter()}
@@ -115,4 +123,4 @@ const RouterCustom = () => {
     );
 };
 
-export default RouterCustom;
+export default App;
