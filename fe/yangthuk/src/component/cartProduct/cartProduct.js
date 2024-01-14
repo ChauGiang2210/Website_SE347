@@ -1,7 +1,7 @@
 import { memo } from "react";
 import "./cartProduct.scss";
 
-const CartProduct = ({ index }) => {
+const CartProduct = ({ name, brand, type, price, img }) => {
   return (
     // <div className="row cartProduct">
     //   <img
@@ -27,17 +27,17 @@ const CartProduct = ({ index }) => {
     <div className="card mb-3 cartProduct" style={{width: "auto", margin:"10px"}}>
             <div className="row g-0">
                 <div className="col-md-4">
-                <img src={process.env.PUBLIC_URL + `/cart${index + 1}.jpg`} className="img-fluid rounded-start" alt="..."style={{ maxWidth: "170px" }}/>
+                <img src={img} className="img-fluid rounded-start" alt="..."style={{ maxWidth: "170px" }}/>
                 </div>
                 <div className="col-md-8">
                 <div className="card-body" style={{lineHeight: "1"}}>
-                    <h5 className="card-title ">Tên sản phẩm: Son kem Blackrouge 
+                    <h5 className="card-title ">Tên sản phẩm: {name} 
                     <a className='tick'>
                    <input type="checkbox" id="accept" />
                    </a></h5>
-                    <p className="card-text">Thương hiệu: BlackRouge</p>
-                    <p className="card-text">Loại sản phẩm: Son</p>
-                    <p className="card-text">Giá: 139.000 VNĐ</p>
+                    <p className="card-text">Thương hiệu: {brand}</p>
+                    <p className="card-text">Loại sản phẩm: {type}</p>
+                    <p className="card-text">Giá: {price}</p>
                     <form>
                    <p><span>Số lượng: &nbsp;</span>
                    <input name="sl" type='number' id='sl' size='20' maxLength='10' className="text" min="1"></input>
