@@ -4,27 +4,27 @@ import "./total.scss"
 const Total = () =>
 {
     return (
-        <div className='total'>
-            <form>
-            <table className="total-table">
-                <tr>
-                    <td>Tổng đơn giá:&nbsp; </td>
-                    <td>xxxx</td>
-                </tr>
-                <tr>
-                    <td>Địa chỉ:&nbsp; </td>
-                    <td><textarea id="address" name="address" rows="4" cols="20" maxlength="60" class="text" border="10px" required="required" wrap="soft"></textarea></td>
-                </tr>
-                <tr>
-                    <td>SĐT nhận hàng:&nbsp; </td>
-                    <td><input name="Phone" type='tel' id='Phone' size='18' maxlength='10' class="text" border="5px"></input></td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center"><input class="button" type="submit" name="btnThanhToan" id="btnThanhToan" value="Thanh toán"></input></td>
-                </tr>
-            </table>
-            </form>
-        </div>
+            <div className='addUser'>
+                <div className="input-group mb-3">
+                <span className="input-group-text" id="basic-addon1">Thành tiền:</span>
+                <input type="number" className="form-control" placeholder="_" aria-label="-" aria-describedby="basic-addon1"/>
+                </div>
+    
+    
+                <div className="input-group mb-3">
+                <span className="input-group-text" id="basic-addon1">Địa chỉ:</span>
+                <input type="text" className="form-control" placeholder="Nhập địa chỉ giao hàng" aria-label="-" aria-describedby="basic-addon1"/>
+                </div>
+    
+                <div className="input-group mb-3">
+                <span className="input-group-text" id="basic-addon1">Số điện thoại:</span>
+                <input type="number" className="form-control" placeholder="Nhập số điện thoại giao hàng" aria-label="-" aria-describedby="basic-addon1"/>
+                </div>
+    
+                <div className="col-auto col d-flex justify-content-center" >
+                <button type="submit" className="btn btn-primary btn_cus">THANH TOÁN</button>
+                </div>
+                        </div>
     )
 };
 export default memo(Total);

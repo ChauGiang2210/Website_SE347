@@ -37,20 +37,6 @@ const Register = () => {
                             </div>
                             <div className="auth-form__group">
                                 <input
-                                    type="tel"
-                                    className="auth-form__input"
-                                    placeholder="Nhập số điện thoại của bạn"
-                                />
-                            </div>
-                            <div className="auth-form__group">
-                                <input
-                                    type="text"
-                                    className="auth-form__input"
-                                    placeholder="Nhập địa chỉ của bạn"
-                                />
-                            </div>
-                            <div className="auth-form__group">
-                                <input
                                     type="password"
                                     className="auth-form__input"
                                     placeholder="Nhập mật khẩu của bạn"
@@ -63,6 +49,11 @@ const Register = () => {
                                     placeholder="Nhập lại mật khẩu của bạn"
                                 />
                             </div>
+                            <select className="form-select" aria-label="Default select example">
+                            <option selected>Chọn chức năng</option>
+                            <option value="1">User</option>
+                            <option value="2">Admin</option>
+                            </select>
                         </div>
                         <div className="auth-form__aside">
                             <p className="auth-form__policy-text">
@@ -76,6 +67,7 @@ const Register = () => {
                                 </a>
                             </p>
                         </div>
+
                         <div className="auth-form__controls">
 
                             <Link to={"/login"} className="link">

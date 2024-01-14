@@ -5,11 +5,11 @@ const Address = ({name, phone, address}) =>
 {
     return (
         <>
-            <div class="card mb-3" style={{width: "80%"}}>
-            <h5 class="card-header">{name}</h5>
-            <div class="card-body">
-                <p class="card-text">SĐT: {phone}</p>
-                <p class="card-text">Địa chỉ: {address}</p>
+            <div className="card mb-3" style={{width: "80%"}}>
+            <h5 className="card-header">{name}</h5>
+            <div className="card-body">
+                <p className="card-text">SĐT: {phone}</p>
+                <p className="card-text">Địa chỉ: {address}</p>
             </div>
             </div>
         </>
