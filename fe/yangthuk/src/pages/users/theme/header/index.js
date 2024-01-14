@@ -27,13 +27,13 @@ const Header = () =>
               <a className="nav-link active" aria-current="page" href="/">Trang chủ</a>
             </li>
             <li className="nav-item">
-              <Link to = "/order" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}><a className="nav-link" >Sản phẩm</a></Link>
+              <Link to = "/order" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}} className="nav-link" >Sản phẩm</Link>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/admin">Quản lý</a>
             </li>
             <li className="nav-item">
-              <Link to = "/user" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}><a className="nav-link" >User</a></Link>
+              <Link to = "/user" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}} className="nav-link" >User</Link>
             </li>
           </ul>
               

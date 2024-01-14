@@ -58,13 +58,13 @@ const Register = () => {
                         <div className="auth-form__aside">
                             <p className="auth-form__policy-text">
                                 Bằng việc đăng ký, bạn đã đồng ý với YangThuk về 
-                                <a href="" className="auth-form__text-link">
+                                <Link to ="" className="auth-form__text-link">
                                     Điều khoản dịch vụ 
-                                </a>
+                                </Link>
                                 &amp;
-                                <a href="" className="auth-form__text-link">
+                                <Link to ="" className="auth-form__text-link">
                                      Chính sách bảo mật
-                                </a>
+                                </Link>
                             </p>
                         </div>
 
