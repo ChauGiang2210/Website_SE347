@@ -110,6 +110,7 @@ const renderAdminRouter = () => {
 
 function App()  {
     const isAdminRoute = window.location.pathname.startsWith("/admin");
+
     
     // const fetchData = async () => {
     //   const res = axios.get(`${process.env.REACT_APP_API_URL}/product`);
@@ -120,7 +121,7 @@ function App()  {
     // const query = useQuery({ queryKey: ['name'], queryFn: fetchData })
     // console.log(query);
     // useEffect(() => {
-      
+
     //   fetchData();
     // }, []); 
     return (
