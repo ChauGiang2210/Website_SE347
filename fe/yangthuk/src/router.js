@@ -18,7 +18,6 @@ import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 import { useEffect } from "react";
 
-
 const renderUserRouter = () => {
   const userRouters = [
     {
