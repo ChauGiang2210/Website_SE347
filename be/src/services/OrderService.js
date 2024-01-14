@@ -5,10 +5,11 @@ class OrderService {
     this.model = orderModel
   }
 
-  async getAll(req, query = {}) {
+  async getAll(req, query) {
     const conditions = {};
     if (query) {
       for (const key in query) {
+        if (key === "column" || key === "_sort" || key === "type") continue;
         conditions[key] = query[key];
       }
     }
@@ -75,13 +76,13 @@ class OrderService {
 
   isExist(id) {
     try {
-        const model = this.model.findById(id);
-        return model ? true : false;
+      const model = this.model.findById(id);
+      return model ? true : false;
     }
     catch {
-        return false;
+      return false;
     }
-}
+  }
 
 }
 

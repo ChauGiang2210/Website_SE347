@@ -25,4 +25,6 @@ const generalRefreshToken = (user) => {
   });
 }
 
+
+
 module.exports = { generalAccessToken, generalRefreshToken };

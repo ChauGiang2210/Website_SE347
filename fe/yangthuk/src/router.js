@@ -17,10 +17,17 @@ import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 import { useEffect } from "react";
+<<<<<<< HEAD
 import FixOrder from "pages/admin/fixOrder";
 import FixUser from "pages/admin/fixUser";
 import FixProduct from "pages/admin/fixProduct";
 
+=======
+import axios from "axios";
+import { useQuery } from '@tanstack/react-query'
+// import dotenv from 'dotenv';
+// dotenv.config();
+>>>>>>> 25348f77f26e5bc66a44caefac89e0d064fd6b6e
 
 const renderUserRouter = () => {
   const userRouters = [
@@ -122,11 +129,18 @@ const renderAdminRouter = () => {
 
 function App()  {
     const isAdminRoute = window.location.pathname.startsWith("/admin");
+
+    
+    // const fetchData = async () => {
+    //   const res = axios.get(`${process.env.REACT_APP_API_URL}/product`);
+    //   console.log(res);
+    //   return res.data;
+    // };
+    
+    // const query = useQuery({ queryKey: ['name'], queryFn: fetchData })
+    // console.log(query);
     // useEffect(() => {
-    //   const fetchData = async () => {
-    //     const result = await fetch('https://api.example.com/data');
-    //     // Xử lý kết quả
-    //   };
+
     //   fetchData();
     // }, []); 
     return (

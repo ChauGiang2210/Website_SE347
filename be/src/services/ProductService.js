@@ -5,10 +5,11 @@ class ProductService {
     this.model = productModel
   }
 
-  async getAll(req, query = {}) {
+  async getAll(req, query) {
     const conditions = {};
     if (query) {
       for (const key in query) {
+        if (key === "column" || key === "_sort" || key === "type") continue;
         conditions[key] = query[key];
       }
     }
