@@ -4,13 +4,14 @@ import React from "react";
 import { SlArrowRight } from "react-icons/sl";
 import Product from "../../../component/product/product";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 const HomePage = () => {
     return (
         <div className="Home">
             <nav aria-label="breadcrumb">
                 <ol className="breadcrumb dir">
-                <li className="breadcrumb-item"><a href="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</a></li>
+                <li className="breadcrumb-item"><Link to ="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</Link></li>
                 </ol>
             </nav>
             
@@ -24,9 +25,9 @@ const HomePage = () => {
                                 Sắp xếp theo thứ tự &nbsp;
                             </button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Mới nhất</a></li>
-                                <li><a className="dropdown-item" href="#">Giá từ thấp đến cao</a></li>
-                                <li><a className="dropdown-item" href="#">Giá từ cao đến thấp</a></li>
+                                <li><Link to = "#" className="dropdown-item" >Mới nhất</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Giá từ thấp đến cao</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Giá từ cao đến thấp</Link></li>
                                 
                             </ul>
                             </div>
@@ -36,26 +37,26 @@ const HomePage = () => {
                                 Thương hiệu &nbsp;
                             </button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Unilever</a></li>
-                                <li><a className="dropdown-item" href="#">Romand</a></li>
-                                <li><a className="dropdown-item" href="#">Simple</a></li>
-                                <li><a className="dropdown-item" href="#">Black Rouge</a></li>
-                                <li><a className="dropdown-item" href="#">Maybelline</a></li>
-                                <li><a className="dropdown-item" href="#">L'oreal</a></li>
+                                <li><Link to = "#" className="dropdown-item" >Unilever</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Romand</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Simple</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Black Rouge</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Maybelline</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >L'oreal</Link></li>
                             </ul>
                             </div>
 
                             <div className="btn-group dropend" style={{margin: "2%", width: "200px"}}>
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" className="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 Loại sản phẩm &nbsp;
                             </button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Làm sạch</a></li>
-                                <li><a className="dropdown-item" href="#">Toner/lotion</a></li>
-                                <li><a className="dropdown-item" href="#">Serum</a></li>
-                                <li><a className="dropdown-item" href="#">Dưỡng ẩm</a></li>
-                                <li><a className="dropdown-item" href="#">Chống nắng</a></li>
-                                <li><a className="dropdown-item" href="#">Trang điểm</a></li>
+                                <li><Link to = "#" className="dropdown-item" >Làm sạch</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Toner/lotion</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Serum</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Dưỡng ẩm</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Chống nắng</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Trang điểm</Link></li>
                             </ul>
                             </div>
 
@@ -64,14 +65,14 @@ const HomePage = () => {
                                 HOT DEAL &nbsp;
                             </button>
                             <ul className="dropdown-menu">
-                                <li><a className="dropdown-item" href="#">Giảm giá 20%</a></li>
-                                <li><a className="dropdown-item" href="#">Mua 1 tặng 1</a></li>
+                                <li><Link to = "#" className="dropdown-item" >Giảm giá 20%</Link></li>
+                                <li><Link to = "#" className="dropdown-item" >Mua 1 tặng 1</Link></li>
                             </ul>
                             </div>
-                            {/* <a href="">Thương hiệu <SlArrowRight /></a>
-                            <a href="">Loại sản phẩm <SlArrowRight /></a>
-                            <a href="">Loại da <SlArrowRight /></a>
-                            <a href="">HOT DEAL <SlArrowRight /></a> */}
+                            {/* <Link to = "#" href="">Thương hiệu <SlArrowRight /></Link>
+                            <Link to = "#" href="">Loại sản phẩm <SlArrowRight /></Link>
+                            <Link to = "#" href="">Loại da <SlArrowRight /></Link>
+                            <Link to = "#" href="">HOT DEAL <SlArrowRight /></Link> */}
                         </nav>
                         <img className='img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
                     </div>

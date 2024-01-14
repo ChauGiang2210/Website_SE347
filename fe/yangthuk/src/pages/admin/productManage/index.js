@@ -34,24 +34,24 @@ const ProductManage = () =>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>
