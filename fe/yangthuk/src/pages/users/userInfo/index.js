@@ -22,10 +22,10 @@ const UserInfo = () =>
             </div>
             </nav>
             <div className="tab-content" id="nav-tabContent">
-            <div className="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabindex="0">
+            <div className="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab" tabIndex="0">
             <Profile></Profile>
             </div>
-            <div className="tab-pane fade show active" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab" tabindex="0" style={{margin:"10px"}}>
+            <div className="tab-pane fade show active" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab" tabIndex="0" style={{margin:"10px"}}>
             <Address name={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"}></Address>
             <Address name={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"}></Address>
             <hr className="border border-secondary border-2 opacity-50"></hr>
@@ -33,11 +33,11 @@ const UserInfo = () =>
             <AddAddress/>
             <button className="btn btn-outline-success btn_cus" type="submit">Thêm địa chỉ</button>
             </div>
-            <div className="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab" tabindex="0">
+            <div className="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab" tabIndex="0">
             <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp.Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
             </div>
             
-            <div className="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab" tabindex="0">
+            <div className="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab" tabIndex="0">
             <LikedProduct/>
             </div>
             </div>

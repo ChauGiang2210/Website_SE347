@@ -1,12 +1,12 @@
-import { memo,useState,useEffect } from "react";
+import { memo } from "react";
 import "./style.scss";
 import { FaRegUser } from "react-icons/fa";
-import { IoSearch } from "react-icons/io5";
+// import { IoSearch } from "react-icons/io5";
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import {Routes, Route} from "react-router-dom"
-import cart from "pages/users/cart";
+// import {Routes, Route} from "react-router-dom"
+// import cart from "pages/users/cart";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

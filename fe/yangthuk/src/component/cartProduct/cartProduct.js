@@ -40,7 +40,7 @@ const CartProduct = ({ index }) => {
                     <p className="card-text">Giá: 139.000 VNĐ</p>
                     <form>
                    <p><span>Số lượng: &nbsp;</span>
-                   <input name="sl" type='number' id='sl' size='20' maxlength='10' class="text" min="1"></input>
+                   <input name="sl" type='number' id='sl' size='20' maxLength='10' className="text" min="1"></input>
                    </p>
                </form>
                

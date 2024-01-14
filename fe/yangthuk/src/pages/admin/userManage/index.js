@@ -1,6 +1,6 @@
 import { memo } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Banner from "component/banner/banner";
+// import Banner from "component/banner/banner";
 import "./style.scss";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'; 
@@ -31,7 +31,7 @@ const UserManage = () => {
             </li>
             </ul>
             <div className="tab-content" id="myTabContent">
-            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex="0">
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -75,7 +75,7 @@ const UserManage = () => {
                 </tbody>
             </table>
             </div>
-            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex="0">
             <table className="table table-striped table-hover">
                 <thead>
                     <tr>

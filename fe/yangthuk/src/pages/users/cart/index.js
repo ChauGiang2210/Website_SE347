@@ -1,5 +1,5 @@
 import { memo } from "react";
-import Banner from "component/banner/banner";
+// import Banner from "component/banner/banner";
 import "./cart.scss"
 import Total from "component/total/total";
 import CartProduct from "component/cartProduct/cartProduct";

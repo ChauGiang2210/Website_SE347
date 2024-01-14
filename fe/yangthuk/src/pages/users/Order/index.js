@@ -23,9 +23,9 @@ const Order = () =>
                 <li className="breadcrumb-item active" aria-current="page">Sản phẩm</li>
             </ol>
             </nav>
-            <div class="banner">
+            <div className="banner">
             <h3>THÔNG TIN SẢN PHẨM</h3>
-            <hr class="border border-secondary border-2 opacity-50"></hr>
+            <hr className="border border-secondary border-2 opacity-50"></hr>
             </div>
             <div className="row">
                 <img className="product-image" src= {imageUrl} alt="product-image" />
@@ -36,9 +36,9 @@ const Order = () =>
                     <p>Giá thành: {price}</p>
                 <div className="buy">
                     <form className="form_buy">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Số lượng:</label>
-                        <input name="sl" type='number' id='sl' size='20' maxlength='10' class="form-control" min="1"></input>
+                    <div className="mb-3">
+                        <label htmlFor="exampleInputEmail1" className="form-label">Số lượng:</label>
+                        <input name="sl" type='number' id='sl' size='20' maxLength='10' className="form-control" min="1"></input>
                     </div>
                     <button type="button" className="btn_cus_ btn btn-outline-secondary">Thêm vào giỏ hàng
                             <Link to={""}></Link></button>
