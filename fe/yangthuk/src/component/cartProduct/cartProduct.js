@@ -24,20 +24,20 @@ const CartProduct = ({ index }) => {
     //         <input type="checkbox" id="accept" />
     //   </div>
     // </div>
-    <div class="card mb-3 cartProduct" style={{width: "auto", margin:"10px"}}>
-            <div class="row g-0">
-                <div class="col-md-4">
-                <img src={process.env.PUBLIC_URL + `/cart${index + 1}.jpg`} class="img-fluid rounded-start" alt="..."style={{ maxWidth: "170px" }}/>
+    <div className="card mb-3 cartProduct" style={{width: "auto", margin:"10px"}}>
+            <div className="row g-0">
+                <div className="col-md-4">
+                <img src={process.env.PUBLIC_URL + `/cart${index + 1}.jpg`} className="img-fluid rounded-start" alt="..."style={{ maxWidth: "170px" }}/>
                 </div>
-                <div class="col-md-8">
-                <div class="card-body" style={{lineHeight: "1"}}>
-                    <h5 class="card-title ">Tên sản phẩm: Son kem Blackrouge 
+                <div className="col-md-8">
+                <div className="card-body" style={{lineHeight: "1"}}>
+                    <h5 className="card-title ">Tên sản phẩm: Son kem Blackrouge 
                     <a className='tick'>
                    <input type="checkbox" id="accept" />
                    </a></h5>
-                    <p class="card-text">Thương hiệu: BlackRouge</p>
-                    <p class="card-text">Loại sản phẩm: Son</p>
-                    <p class="card-text">Giá: 139.000 VNĐ</p>
+                    <p className="card-text">Thương hiệu: BlackRouge</p>
+                    <p className="card-text">Loại sản phẩm: Son</p>
+                    <p className="card-text">Giá: 139.000 VNĐ</p>
                     <form>
                    <p><span>Số lượng: &nbsp;</span>
                    <input name="sl" type='number' id='sl' size='20' maxlength='10' class="text" min="1"></input>

@@ -5,7 +5,7 @@ const Profile = () =>
 {
     return (
         <>
-            <table class="table table-borderless" style={{width: "50%"}}>
+            <table className="table table-borderless" style={{width: "50%"}}>
             <tbody>
                 <tr>
                 <td>Họ và tên: </td>

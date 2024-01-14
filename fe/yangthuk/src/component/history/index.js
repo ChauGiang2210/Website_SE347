@@ -5,14 +5,14 @@ const History = ({ address, date, detail, status, price}) =>
 {
     return (
         <>
-            <div class="card mb-3" style={{width: "80%", margin: "10px"}}>
-            <h5 class="card-header">Đơn hàng</h5>
-            <div class="card-body">
-                <p class="card-text">Ngày giao hàng: {date}</p>
-                <p class="card-text">Địa chỉ giao hàng: {address}</p>
-                <p class="card-text">Chi tiết đơn hàng: {detail}</p>
-                <p class="card-text">Thành tiền: {price}</p>
-                <p class="card-text">Trạng thái đơn hàng: {status}</p>
+            <div className="card mb-3" style={{width: "80%", margin: "10px"}}>
+            <h5 className="card-header">Đơn hàng</h5>
+            <div className="card-body">
+                <p className="card-text">Ngày giao hàng: {date}</p>
+                <p className="card-text">Địa chỉ giao hàng: {address}</p>
+                <p className="card-text">Chi tiết đơn hàng: {detail}</p>
+                <p className="card-text">Thành tiền: {price}</p>
+                <p className="card-text">Trạng thái đơn hàng: {status}</p>
             </div>
             </div>
         </>
