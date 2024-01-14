@@ -95,8 +95,9 @@ class UserController {
     }
 
     async getUserById(req, res) {
+        console.log(req.headers.authorization);
         try {
-            const user = await UserService.getById(res.params.id);
+            const user = await UserService.getById(req.params.id);
 
             res.json({
                 success: true,
@@ -132,7 +133,7 @@ class UserController {
 
             const finalData = {
                 access_token,
-                refresh_token,
+                // refresh_token,
                 user: {
                     email: checkUser.email,
                     name: checkUser.name,
@@ -140,6 +141,12 @@ class UserController {
                     role: checkUser.role,
                 },
             };
+
+            // const { refresh_token, ...newFinalData } = finalData;
+            res.cookie("refresh_token", refresh_token, {
+                HttpOnly: true,
+                Secure: true,
+            })
 
             // console.log(res.json({
             //     success: true,

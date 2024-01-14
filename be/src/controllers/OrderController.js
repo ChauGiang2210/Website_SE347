@@ -95,7 +95,7 @@ class OrderController {
   async getOrderById(req, res) {
     try {
 
-      const order = await orderService.getById(res.params.id);
+      const order = await orderService.getById(req.params.id);
 
       res.json({
         success: true,

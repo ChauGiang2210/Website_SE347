@@ -8,10 +8,13 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 // import {Routes, Route} from "react-router-dom"
 // import cart from "pages/users/cart";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useSelector } from "react-redux";
 
 
 const Header = () =>
 {
+  const user = useSelector(state => state.user)
+  console.log(user);
   return (
   <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
