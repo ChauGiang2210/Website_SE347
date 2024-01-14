@@ -16,6 +16,8 @@ import UserInfo from "pages/users/userInfo";
 import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
+import React from "react";
+import axios from "axios";
 
 const renderUserRouter = () => {
   const userRouters = [
