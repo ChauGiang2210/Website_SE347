@@ -4,7 +4,7 @@ import "./cart.scss"
 import Total from "component/total/total";
 import CartProduct from "component/cartProduct/cartProduct";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import { Link } from "react-router-dom";
 const Cart = () =>
 {
     const breadcrumbDividerStyle = {
@@ -14,7 +14,7 @@ const Cart = () =>
         <div>
             <nav style={breadcrumbDividerStyle} aria-label="breadcrumb">
             <ol className="breadcrumb dir" >
-                <li className="breadcrumb-item"><a href="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</a></li>
+                <li className="breadcrumb-item"><Link to="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</Link></li>
                 <li className="breadcrumb-item active" aria-current="page">Giỏ hàng</li>
             </ol>
             </nav>

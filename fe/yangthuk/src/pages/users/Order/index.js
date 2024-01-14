@@ -2,7 +2,6 @@ import { memo } from "react";
 import "./order.scss";
 import { Link } from "react-router-dom";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import Banner from "component/banner/banner";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Order = () =>
@@ -20,7 +19,7 @@ const Order = () =>
         <div>
            <nav style={breadcrumbDividerStyle} aria-label="breadcrumb">
             <ol className="breadcrumb dir">
-                <li className="breadcrumb-item"><a href="/" style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</a></li>
+                <li className="breadcrumb-item"><Link to={"/"} style={{textDecoration: "none", color: "inherit" ,fontSize: '16px'}}>Trang chủ</Link></li>
                 <li className="breadcrumb-item active" aria-current="page">Sản phẩm</li>
             </ol>
             </nav>

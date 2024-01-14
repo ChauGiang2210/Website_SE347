@@ -39,8 +39,8 @@ const CartManage = () =>
                     <td>{phone}</td>
                     <td>{list_product}</td>
                     <td>{price}</td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     
                     <tr>
@@ -50,8 +50,8 @@ const CartManage = () =>
                     <td>{phone}</td>
                     <td>{list_product}</td>
                     <td>{price}</td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>

@@ -51,8 +51,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">2</th>
@@ -60,8 +60,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">3</th>
@@ -69,8 +69,8 @@ const UserManage = () => {
                     <td>{admin_email}</td>
                     <td>{admin_password}</td>
                     <td>{admin_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>
@@ -97,8 +97,8 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
@@ -106,8 +106,8 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
@@ -115,8 +115,8 @@ const UserManage = () => {
                     <td>{user_email}</td>
                     <td>{user_password}</td>
                     <td>{user_role}</td>
-                    <td><a href="#" className="card-link">Sửa</a></td>
-                    <td><a href="#" className="card-link">Xóa</a></td>
+                    <td><Link to ="#" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link">Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>

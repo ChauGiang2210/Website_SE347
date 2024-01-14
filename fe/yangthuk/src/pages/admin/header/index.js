@@ -1,6 +1,7 @@
 import { memo } from "react";
 import "./header.scss"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom";
 
 
 const Header = () =>
@@ -13,22 +14,19 @@ const Header = () =>
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a className="navbar-brand" href="#">YangThuk Comestic</a>
+      <Link to="#" className="navbar-brand">YangThuk Comestic</Link>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Trang chủ</a>
-        </li>
-        {/* <li className="nav-item">
-          <a className="nav-link" href="/"></a>
-        </li> */}
-        <li className="nav-item">
-          <a className="nav-link" href="/admin">Kho hàng</a>
+          <Link to="/" className="nav-link active" aria-current="page" >Trang chủ</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/admin/cartmanage">Đơn hàng</a>
+          <Link to="/admin" className="nav-link" >Kho hàng</Link>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="/admin/usermanage">Tài khoản</a>
+          <Link to="/admin/cartmanage" className="nav-link" >Đơn hàng</Link>
+        </li>
+        <li className="nav-item">
+          <Link to="/admin/usermanage" className="nav-link">Tài khoản</Link>
         </li>
       </ul>
       <form className="d-flex" role="search">
