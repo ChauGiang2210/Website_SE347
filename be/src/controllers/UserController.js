@@ -5,7 +5,7 @@ const Jwt = require("../services/JwtService.js");
 class UserController {
     async getAllUsers(req, res) {
         try {
-            const users = await UserService.getAll(req);
+            const users = await UserService.getAll(req, req.query);
 
             res.json({
                 success: true,
@@ -95,8 +95,9 @@ class UserController {
     }
 
     async getUserById(req, res) {
+        console.log(req.headers.authorization);
         try {
-            const user = await UserService.getById(res.params.id);
+            const user = await UserService.getById(req.params.id);
 
             res.json({
                 success: true,
@@ -112,6 +113,7 @@ class UserController {
     }
 
     async login(req, res) {
+        console.log(req.body);
         try {
             const { email, password } = req.body;
             
@@ -131,7 +133,7 @@ class UserController {
 
             const finalData = {
                 access_token,
-                refresh_token,
+                // refresh_token,
                 user: {
                     email: checkUser.email,
                     name: checkUser.name,
@@ -140,6 +142,17 @@ class UserController {
                 },
             };
 
+            // const { refresh_token, ...newFinalData } = finalData;
+            res.cookie("refresh_token", refresh_token, {
+                HttpOnly: true,
+                Secure: true,
+            })
+
+            // console.log(res.json({
+            //     success: true,
+            //     message: "Login successfull!",
+            //     finalData,
+            // }));
             return res.json({
                 success: true,
                 message: "Login successfull!",

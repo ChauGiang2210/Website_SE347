@@ -5,10 +5,12 @@ const authenticate = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {
     const token = authorization.slice(7, authorization.length);
+    console.log(token);
     jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (error, decode) => {
       if (error) {
         res.status(401).send({ messagge: "Token invalid" });
       } else {
+        console.log(decode);
         req.user = decode;
         next();
       }
