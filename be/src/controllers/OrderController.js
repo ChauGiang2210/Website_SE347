@@ -3,7 +3,7 @@ const orderService = require('../services/OrderService.js');
 class OrderController {
   async getAllOrders(req, res) {
     try {
-      const orders = await orderService.getAll(req);
+      const orders = await orderService.getAll(req, req.query);
 
       res.json({
         success: true,
@@ -112,7 +112,8 @@ class OrderController {
 
   async getAllOrdersByUser(req, res) {
     try {
-      const orders = await orderService.getAll(req, { user: req.params.user });
+      req.query.user = req.params.user;
+      const orders = await orderService.getAll(req, req.query);
 
       res.json({
         success: true,

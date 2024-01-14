@@ -31,10 +31,11 @@ class UserService {
         this.model = userModel
     }
 
-    async getAll(req, query = {}) {
+    async getAll(req, query) {
         const conditions = {};
         if (query) {
             for (const key in query) {
+                if (key === "column" || key === "_sort" || key === "type") continue;
                 conditions[key] = query[key];
             }
         }
@@ -112,29 +113,29 @@ class UserService {
     async validateLogin(req) {
         const { email, password } = req.body;
         const errors = [];
-        
+
         // Kiểm tra email
         if (!email || email.trim() === "") {
             errors.push("Email is required");
         } else if (!validator.isEmail(email)) {
             errors.push("Invalid email format");
         }
-        
+
         // Kiểm tra password
         if (!password || password.trim() === "") {
             errors.push("Password is required");
         } else if (password.length < 6) {
             errors.push("Password must be at least 6 characters long");
         }
-        
+
         // Kiểm tra xem có user nào tồn tại với email này không
         const user = await this.model.findOne({ email });
         if (!user) {
             errors.push("User not found");
         }
 
-        // console.log(bcrypt.compareSync(password, user.password))
-        
+        console.log(bcrypt.compareSync(password, user.password))
+
         // Kiểm tra xem password có đúng không
         if (user && bcrypt.compareSync(password, user.password) === false) {
             errors.push("Wrong password");

@@ -1,20 +1,37 @@
 import React from "react";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { login } from "../../../services/login";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 // import style from "./style.module.css";
 
 const Login = () => {
-    const [email, setEmail] = React.useState("");
-    const [password, setPassword] = React.useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    function isValidForm() {
+        return email &&
+          email.trim() !== "" &&
+          password &&
+          password.trim() !== ""
+          ? true
+          : false;
+      }
 
     const handleEmailChange = (e) => {
-        // console.log(e.target.value);
-        return setEmail(e.target.value);
+        setEmail(e.target.value);
     }
 
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
+    }
+
+    const handleLoginClick = async () => {
+        const data = await login({ email, password });
+        alert(data)
+        console.log(data);
     }
 
     return (
@@ -72,7 +89,9 @@ const Login = () => {
                         </Link>
                             <button 
                                 className="btn btn--primary" 
-                                // onClick={handleLoginClick}
+                                onClick={handleLoginClick}
+                                // disabled={!isValidForm()}
+                                
                             >ĐĂNG NHẬP</button>
                         </div>
                     </form>
