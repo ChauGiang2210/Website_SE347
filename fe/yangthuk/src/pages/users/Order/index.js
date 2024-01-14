@@ -10,6 +10,8 @@ const Order = () =>
     const breadcrumbDividerStyle = {
         '--bs-breadcrumb-divider': 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'8\' height=\'8\'%3E%3Cpath d=\'M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z\' fill=\'%236c757d\'/%3E%3C/svg%3E")',
       };
+    
+    const name = 'Son Kem Black Rouge Air Fit Velvet Tint Ver 2 36.6g';
     return (
         <div>
             {/* <div className="row">
@@ -32,7 +34,7 @@ const Order = () =>
             <div className="row">
                 <img className="product-image" src={process.env.PUBLIC_URL + '/son-demo.jpg'} alt="product-image" />
                 <div className="Product-info">
-                    <p id="p-name">Son Kem Black Rouge Air Fit Velvet Tint Ver 2 36.6g</p>
+                    <p id="p-name">{name}</p>
                     <p>Thương hiệu: </p>
                     <p>Loại sản phẩm: </p>
                     <p>Giá thành: </p>

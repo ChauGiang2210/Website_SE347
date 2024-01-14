@@ -5,7 +5,7 @@ const Jwt = require("../services/JwtService.js");
 class UserController {
     async getAllUsers(req, res) {
         try {
-            const users = await UserService.getAll(req);
+            const users = await UserService.getAll(req, req.query);
 
             res.json({
                 success: true,
@@ -112,6 +112,7 @@ class UserController {
     }
 
     async login(req, res) {
+        console.log(req.body);
         try {
             const { email, password } = req.body;
             
@@ -140,6 +141,11 @@ class UserController {
                 },
             };
 
+            // console.log(res.json({
+            //     success: true,
+            //     message: "Login successfull!",
+            //     finalData,
+            // }));
             return res.json({
                 success: true,
                 message: "Login successfull!",

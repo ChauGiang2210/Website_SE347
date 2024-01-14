@@ -3,7 +3,7 @@ const ProductService = require('../services/ProductService');
 class ProductController {
   async getAllProducts(req, res) {
     try {
-      const products = await ProductService.getAll(req);
+      const products = await ProductService.getAll(req, req.query);
 
       res.json({
         success: true,
@@ -112,7 +112,8 @@ class ProductController {
 
   async getAllProductsByCategory(req, res) {
     try {
-      const products = await ProductService.getAll(req, { category: req.params.category });
+      req.query.category = req.params.category;
+      const products = await ProductService.getAll(req, req.query);
 
       res.json({
         success: true,
@@ -129,7 +130,8 @@ class ProductController {
 
   async getAllProductsByBrand(req, res) {
     try {
-      const products = await ProductService.getAll(req, { brand: req.params.brand });
+      req.query.brand = req.params.brand;
+      const products = await ProductService.getAll(req, req.query);
 
       res.json({
         success: true,
@@ -146,7 +148,8 @@ class ProductController {
 
   async getAllProductsBySkinType(req, res) {
     try {
-      const products = await ProductService.getAll(req, { skinType: req.params.skinType });
+      req.query.skinType = req.params.skinType;
+      const products = await ProductService.getAll(req, req.query);
 
       res.json({
         success: true,
