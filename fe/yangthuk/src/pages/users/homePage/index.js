@@ -1,7 +1,7 @@
 import { memo } from "react";
 import "./style.scss";
 import React from "react";
-import { SlArrowRight } from "react-icons/sl";
+// import { SlArrowRight } from "react-icons/sl";
 import Product from "../../../component/product/product";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from "react-router-dom";
