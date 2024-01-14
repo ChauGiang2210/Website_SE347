@@ -50,7 +50,7 @@ const Register = () => {
                                 />
                             </div>
                             <select className="form-select" aria-label="Default select example">
-                            <option selected>Chọn chức năng</option>
+                            <option defaultValue={"0"}>Chọn chức năng</option>
                             <option value="1">User</option>
                             <option value="2">Admin</option>
                             </select>

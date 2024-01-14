@@ -1,6 +1,6 @@
 import { memo } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Banner from "component/banner/banner";
+// import Banner from "component/banner/banner";
 import "./style.scss";
 import { Link } from "react-router-dom";
 
