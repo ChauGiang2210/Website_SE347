@@ -13,12 +13,12 @@ const Login = () => {
 
     function isValidForm() {
         return email &&
-          email.trim() !== "" &&
-          password &&
-          password.trim() !== ""
-          ? true
-          : false;
-      }
+            email.trim() !== "" &&
+            password &&
+            password.trim() !== ""
+            ? true
+            : false;
+    }
 
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
@@ -29,9 +29,26 @@ const Login = () => {
     }
 
     const handleLoginClick = async () => {
-        const data = await login({ email, password });
-        alert(data)
-        console.log(data);
+        // const data = await login({ email, password });
+        // alert(email, password)
+        // console.log(data);
+        const data = { email, password };
+        const loginApi = 'http://localhost:3001/api/user/login'
+        await fetch(loginApi, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                console.log(data);
+
+            })
+            .catch(function (err) {
+                console.log('Có lỗi xảy ra');
+            })
     }
 
     return (
@@ -42,11 +59,11 @@ const Login = () => {
                     <form className="auth-form__container">
                         <div className="auth-form__header">
                             <h3 className="auth-form__heading">Đăng nhập</h3>
-                            
+
                             <span className="auth-form__switch-btn">
                                 <Link to={"/register"} className="auth-form__switch-btn">Đăng ký</Link>
-                                </span>
-                            
+                            </span>
+
                         </div>
                         <div className="auth-form__form">
                             <div className="auth-form__group">
@@ -71,9 +88,9 @@ const Login = () => {
                         <div className="auth-form__aside">
                             <div className="auth-form__help">
                                 <Link to={"/forgotPassword"} className="link auth-form__help-link auth-form__help-forgot">
-                        
+
                                     Quên mật khẩu
-                                
+
                                 </Link>
                                 <span className="auth-form__help-separate" />
                                 <Link to={"#"} className="auth-form__help-link">
@@ -82,16 +99,16 @@ const Login = () => {
                             </div>
                         </div>
                         <div className="auth-form__controls">
-                        <Link to={"/"} className="link">
-                            <button className="btn btn--normal auth-form__controls-back">
-                                TRỞ LẠI
-                            </button>
-                        </Link>
-                            <button 
-                                className="btn btn--primary" 
+                            <Link to={"/"} className="link">
+                                <button className="btn btn--normal auth-form__controls-back">
+                                    TRỞ LẠI
+                                </button>
+                            </Link>
+                            <button
+                                className="btn btn--primary"
                                 onClick={handleLoginClick}
-                                // disabled={!isValidForm()}
-                                
+                            // disabled={!isValidForm()}
+
                             >ĐĂNG NHẬP</button>
                         </div>
                     </form>
