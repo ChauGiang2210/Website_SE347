@@ -145,7 +145,14 @@ class UserController {
             // const { refresh_token, ...newFinalData } = finalData;
             res.cookie("refresh_token", refresh_token, {
                 HttpOnly: true,
-                Secure: true,
+                Secure: false,
+                SameSite: "strict",
+            })
+
+            res.cookie("access_token", access_token, {
+                HttpOnly: true,
+                Secure: false,
+                // SameSite: "strict",
             })
 
             // console.log(res.json({
@@ -164,6 +171,25 @@ class UserController {
             return res.json({
                 success: false,
                 error: "Error while logging In. Please try again",
+            });
+        }
+    }
+
+    async logout(req, res) {
+        try {
+            res.clearCookie("refresh_token");
+            res.clearCookie("access_token");
+
+            res.json({
+                success: true,
+                message: "Logout successfull!",
+            });
+
+        }
+        catch {
+            return res.json({
+                success: false,
+                error: "Error while logging out. Please try again",
             });
         }
     }

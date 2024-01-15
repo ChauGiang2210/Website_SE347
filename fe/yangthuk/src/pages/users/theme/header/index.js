@@ -15,7 +15,7 @@ import { useSelector } from "react-redux";
 const Header = () =>
 {
   const user = useSelector(state => state.user)
-  console.log(user);
+  // console.log(user);
   return (
   <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
