@@ -2,11 +2,11 @@ import { memo } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.scss";
 
-const AddUser = () =>
+const FixUser = () =>
 {
     return (
         <div className='addUser'>
-            <h3>THÊM THÔNG TIN NGƯỜI DÙNG</h3>
+            <h3>CHỈNH SỬA THÔNG TIN NGƯỜI DÙNG</h3>
             <hr className="border border-secondary border-2 opacity-50"></hr>
             <div className="input-group mb-3">
             <span className="input-group-text" id="basic-addon1">User Name:</span>
@@ -29,9 +29,9 @@ const AddUser = () =>
             </div>
 
             <div className="input-group mb-3">
-            <label className="input-group-text" for="inputGroupSelect01">Phân quyền:</label>
+            <label className="input-group-text" htmlFor="inputGroupSelect01">Phân quyền:</label>
             <select className="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
+                <option defaultValue={0}>Choose...</option>
                 <option value="1">Admin</option>
                 <option value="2">User</option>
             </select>
@@ -43,4 +43,4 @@ const AddUser = () =>
                     </div>
     )
 };
-export default memo(AddUser);
+export default memo(FixUser);

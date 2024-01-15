@@ -2,11 +2,11 @@ import { memo } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.scss";
 
-const AddProduct = () =>
+const FixProduct = () =>
 {
     return (
         <div className='addUser'>
-            <h3>THÊM SẢN PHẨM</h3>
+            <h3>CHỈNH SỬA THÔNG TIN SẢN PHẨM</h3>
             <hr className="border border-secondary border-2 opacity-50"></hr>
             <div className="input-group mb-3">
             <span className="input-group-text" id="name">Tên mặt hàng:</span>
@@ -43,4 +43,4 @@ const AddProduct = () =>
                     </div>
     )
 };
-export default memo(AddProduct);
+export default memo(FixProduct);

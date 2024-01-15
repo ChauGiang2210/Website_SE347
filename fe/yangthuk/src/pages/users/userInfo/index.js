@@ -26,8 +26,8 @@ const UserInfo = () =>
             <Profile></Profile>
             </div>
             <div className="tab-pane fade show active" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab" tabIndex="0" style={{margin:"10px"}}>
-            <Address name={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"}></Address>
-            <Address name={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"}></Address>
+            <Address fullName={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"}></Address>
+            <Address fullName={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"}></Address>
             <hr className="border border-secondary border-2 opacity-50"></hr>
             <p>THÊM ĐỊA CHỈ NHẬN HÀNG</p>
             <AddAddress/>

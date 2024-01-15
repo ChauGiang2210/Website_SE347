@@ -17,6 +17,9 @@ import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 import { useEffect } from "react";
+import FixOrder from "pages/admin/fixOrder";
+import FixUser from "pages/admin/fixUser";
+import FixProduct from "pages/admin/fixProduct";
 import axios from "axios";
 import { useQuery } from '@tanstack/react-query'
 import { isJsonString } from "utils/isJsonString";
@@ -93,13 +96,33 @@ const renderAdminRouter = () => {
       component: <AddUser />
     },
     {
-      path: ROUTERS.ADMIN.ADDPRODUCT,
-      component: <AddProduct />
-    },
-    {
-      path: ROUTERS.ADMIN.ADDORDER,
-      component: <AddOrder />
-    },
+        path: ROUTERS.ADMIN.USERMANAGE,
+        component: <UserManage />
+      },
+      {
+        path: ROUTERS.ADMIN.ADDUSER,
+        component: <AddUser />
+      },
+      {
+        path: ROUTERS.ADMIN.ADDPRODUCT,
+        component: <AddProduct />
+      },
+      {
+        path: ROUTERS.ADMIN.ADDORDER,
+        component: <AddOrder />
+      },
+      {
+        path: ROUTERS.ADMIN.FIXUSER,
+        component: <FixUser />
+      },
+      {
+        path: ROUTERS.ADMIN.FIXPRODUCT,
+        component: <FixProduct />
+      },
+      {
+        path: ROUTERS.ADMIN.FIXORDER,
+        component: <FixOrder />
+      },
   ];
 
   return (
