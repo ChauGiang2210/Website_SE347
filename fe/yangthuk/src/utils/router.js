@@ -17,5 +17,8 @@ export const ROUTERS =
         ADDUSER: "admin/usermanage/adduser",
         ADDPRODUCT: "admin/productmanage/addproduct",
         ADDORDER: "admin/cartmanage/addorder",
+        FIXUSER: "admin/usermanage/fixuser",
+        FIXPRODUCT: "admin/productmanage/fixproduct",
+        FIXORDER: "admin/cartmanage/fixorder",
     }
 }

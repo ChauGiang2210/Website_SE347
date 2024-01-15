@@ -1,11 +1,23 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import Banner from "component/banner/banner";
 import "./style.scss";
 import { Link } from "react-router-dom";
+import Delete from "component/delete/index";
 
 const ProductManage = () =>
 {
+    const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
+    const handleDeleteClick = () => {
+        // Mở modal xóa khi click vào liên kết "Xóa"
+        setDeleteModalVisible(true);
+    };
+
+    const handleDeleteConfirm = () => {
+        // Thực hiện hành động xóa ở đây
+        // Đóng modal xóa
+        setDeleteModalVisible(false);
+    };
     const name = "Toner Simple";
     const produce = "Simple";
     const quantity = "30";
@@ -34,28 +46,31 @@ const ProductManage = () =>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/productmanage/fixproduct" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/productmanage/fixproduct" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link"onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                     <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{produce}</td>
                     <td>{quantity}</td>
-                    <td><Link to ="#" className="card-link">Sửa</Link></td>
-                    <td><Link to ="#" className="card-link">Xóa</Link></td>
+                    <td><Link to ="/admin/productmanage/fixproduct" className="card-link">Sửa</Link></td>
+                    <td><Link to ="#" className="card-link"onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr>
                 </tbody>
             </table>
             </div>
+            {isDeleteModalVisible && (
+                <Delete onClose={() => setDeleteModalVisible(false)} onConfirm={handleDeleteConfirm} />
+            )}
         </>
     )
 

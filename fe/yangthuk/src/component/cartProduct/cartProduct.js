@@ -43,8 +43,6 @@ const CartProduct = ({ name, brand, type, price, img }) => {
                    <input name="sl" type='number' id='sl' size='20' maxLength='10' className="text" min="1"></input>
                    </p>
                </form>
-               
-             
              </div>
                 </div>
             </div>
