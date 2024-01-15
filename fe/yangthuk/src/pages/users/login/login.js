@@ -17,8 +17,13 @@ import { updateUser } from "../../../redux/slides/userSlide";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const mutation = useMutationHook( 
+        data => login(data),
+      )
+    
     function isValidForm() {
         return email &&
             email.trim() !== "" &&
@@ -36,11 +41,6 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const mutation = useMutationHook( 
-        data => login(data),
-      )
-    
-    const navigate = useNavigate();
     
     const handleLoginClick = async () => {
         mutation.mutate({email, password})
@@ -48,27 +48,21 @@ const Login = () => {
 
     const handleGetDetailUser = async (id, token) => {
         const data = await getDetailUser(id)
-        // console.log(data.user);
         dispatch(updateUser({...data.user, access_token: token}))
     }
 
     useEffect(() => {
         if (mutation.isSuccess) {
-            // console.log(mutation.data.finalData.access_token);
-            // console.log(mutation.data?.access_token);
-            localStorage.setItem("token", mutation.data.finalData.access_token);
+            localStorage.setItem("token", JSON.stringify(mutation.data.finalData.access_token));
             alert("Đăng nhập thành công");
-            // window.location.href = "/";
             navigate("/")
         }
         if (mutation.data?.finalData.access_token) {
             const decoded = jwtDecode(mutation.data.finalData.access_token);
-            // console.log(decoded);
             if (decoded?.id)
             {
                 handleGetDetailUser(decoded.id, mutation.data.finalData.access_token);
             }
-            // localStorage.setItem("user", JSON.stringify(decoded));
         }
         if (mutation.isError) {
             alert("Đăng nhập thất bại");
