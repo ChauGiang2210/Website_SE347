@@ -62,6 +62,7 @@ const UserInfo = () => {
             <Profile></Profile>
             </div>
             <div className="tab-pane fade show active" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab" tabIndex="0" style={{margin:"10px"}}>
+
             {
                 address.map((item, index) => {
                     return (
@@ -78,7 +79,7 @@ const UserInfo = () => {
 
             </div>
             <div className="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab" tabIndex="0">
-            <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp.Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
+            <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp. Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
             </div>
             
             <div className="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab" tabIndex="0">
