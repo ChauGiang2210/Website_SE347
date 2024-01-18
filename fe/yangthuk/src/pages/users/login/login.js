@@ -2,7 +2,7 @@ import React from "react";
 import { memo, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-import { login } from "../../../services/login";
+import { login } from "../../../services/user";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 import { useMutation } from '@tanstack/react-query'
@@ -17,8 +17,16 @@ import { updateUser } from "../../../redux/slides/userSlide";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
+    const mutation = useMutationHook( 
+        (data) => { 
+            return login(data)
+        },
+
+    )
+    
     function isValidForm() {
         return email &&
             email.trim() !== "" &&
@@ -36,12 +44,6 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    const mutation = useMutationHook( 
-        data => login(data),
-      )
-    
-    const navigate = useNavigate();
-    
     const handleLoginClick = async () => {
         mutation.mutate({email, password})
     }
@@ -53,25 +55,20 @@ const Login = () => {
     }
 
     useEffect(() => {
-        if (mutation.isSuccess) {
-            // console.log(mutation.data.finalData.access_token);
-            // console.log(mutation.data?.access_token);
-            localStorage.setItem("token", mutation.data.finalData.access_token);
+        if (mutation.isError || (mutation.isSuccess && !mutation.data?.success)) {
+            alert("Đăng nhập thất bại");
+        }
+        if (mutation.isSuccess && mutation.data?.success && mutation.data?.finalData.access_token) {
+            localStorage.setItem("token", JSON.stringify(mutation.data.finalData.access_token));
             alert("Đăng nhập thành công");
-            // window.location.href = "/";
             navigate("/")
         }
-        if (mutation.data?.finalData.access_token) {
+        if (mutation.data?.success && mutation.data?.finalData.access_token) {
             const decoded = jwtDecode(mutation.data.finalData.access_token);
-            // console.log(decoded);
             if (decoded?.id)
             {
                 handleGetDetailUser(decoded.id, mutation.data.finalData.access_token);
             }
-            // localStorage.setItem("user", JSON.stringify(decoded));
-        }
-        if (mutation.isError) {
-            alert("Đăng nhập thất bại");
         }
     }, [mutation.isSuccess, mutation.isError])
     
@@ -132,7 +129,7 @@ const Login = () => {
                             <button
                                 className="btn btn--primary"
                                 onClick={handleLoginClick}
-                            // disabled={!isValidForm()}
+                            disabled={!isValidForm()}
 
                             >ĐĂNG NHẬP</button>
                         </div>

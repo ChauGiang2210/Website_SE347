@@ -22,6 +22,11 @@ import FixUser from "pages/admin/fixUser";
 import FixProduct from "pages/admin/fixProduct";
 import axios from "axios";
 import { useQuery } from '@tanstack/react-query'
+import { isJsonString } from "utils/isJsonString";
+import { jwtDecode } from "jwt-decode";
+import { getDetailUser } from "./services/user";
+import { useDispatch } from "react-redux";
+import { updateUser, resetUser } from "./redux/slides/userSlide";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -55,10 +60,10 @@ const renderUserRouter = () => {
       path: ROUTERS.USER.USER,
       component: <UserInfo />
     },
-     {
-            path: ROUTERS.USER.FORGOTPASSWORD,
-            component: <ForgotPassword/>
-     },
+    {
+      path: ROUTERS.USER.FORGOTPASSWORD,
+      component: <ForgotPassword />
+    },
   ];
 
   return (
@@ -79,9 +84,17 @@ const renderAdminRouter = () => {
       component: <ProductManage />
     },
     {
-        path: ROUTERS.ADMIN.CARTMANAGE,
-        component: <CartManage />
-      },
+      path: ROUTERS.ADMIN.CARTMANAGE,
+      component: <CartManage />
+    },
+    {
+      path: ROUTERS.ADMIN.USERMANAGE,
+      component: <UserManage />
+    },
+    {
+      path: ROUTERS.ADMIN.ADDUSER,
+      component: <AddUser />
+    },
     {
         path: ROUTERS.ADMIN.USERMANAGE,
         component: <UserManage />
@@ -123,29 +136,40 @@ const renderAdminRouter = () => {
   );
 };
 
-function App()  {
-    const isAdminRoute = window.location.pathname.startsWith("/admin");
+function App() {
+  const isAdminRoute = window.location.pathname.startsWith("/admin");
+  const dispatch = useDispatch();
 
-    
-    // const fetchData = async () => {
-    //   const res = axios.get(`${process.env.REACT_APP_API_URL}/product`);
-    //   console.log(res);
-    //   return res.data;
-    // };
-    
-    // const query = useQuery({ queryKey: ['name'], queryFn: fetchData })
-    // console.log(query);
-    // useEffect(() => {
+  const handleGetDetailUser = async (id, token) => {
+    const data = await getDetailUser(id)
+    dispatch(updateUser({ ...data.user, access_token: token }))
+  }
 
-    //   fetchData();
-    // }, []); 
-    return (
-      <>
-        {isAdminRoute ? renderAdminRouter() : renderUserRouter()}
-        {/* Hoặc nếu bạn muốn điều hướng nếu không phải là route admin
+  useEffect(() => {
+    let storedData = localStorage.getItem("token");
+    if (storedData && isJsonString(storedData)) {
+      storedData = JSON.parse(storedData);
+    }
+    // console.log('storedData', storedData);
+    let decoded = null
+    if (storedData) {
+      decoded = jwtDecode(storedData);
+    }
+    if (decoded?.id) {
+      handleGetDetailUser(decoded?.id, storedData);
+    }
+    else {
+      dispatch(resetUser({}));
+    }
+  }, []);
+
+  return (
+    <>
+      {isAdminRoute ? renderAdminRouter() : renderUserRouter()}
+      {/* Hoặc nếu bạn muốn điều hướng nếu không phải là route admin
         {!isAdminRoute && <Navigate to={ROUTERS.USER.HOME} />} */}
-      </>
-    );
+    </>
+  );
 };
 
 export default App;

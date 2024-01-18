@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Product = ({name, brand, price, srcImg}) => {
     return (
         <div >
+        <div className="row row-cols-1 row-cols-md-4 g-4">
         <div className="col">
           <div className="card"><Link to={"/order"}>
             <img src={srcImg} className="card-img-top" alt="..."/>
@@ -17,7 +18,7 @@ const Product = ({name, brand, price, srcImg}) => {
             </Link>
           </div>
         </div>
-  
+     
         </div>
     )
 };

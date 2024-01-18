@@ -88,9 +88,9 @@ class UserService {
         }
 
         // Kiểm tra favorites (nếu cần)
-        if (!isFavoritesValid(user.favorites)) {
-            errors.push("Invalid favorites");
-        }
+        // if (!isFavoritesValid(user.favorites)) {
+        //     errors.push("Invalid favorites");
+        // }
 
         // Kiểm tra role
         if (!user.role || !["user", "admin"].includes(user.role)) {

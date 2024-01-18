@@ -7,7 +7,7 @@ class UserController {
         try {
             const users = await UserService.getAll(req, req.query);
 
-            res.json({
+            return res.json({
                 success: true,
                 users,
             });
@@ -22,6 +22,7 @@ class UserController {
 
     async addUser(req, res) {
         const errors = UserService.validate(req);
+        console.log(errors);
 
         if (errors.length > 0) {
             return res.json({
@@ -32,13 +33,14 @@ class UserController {
 
         const user = await UserService.create(req.body);
 
-        res.json({
+        return res.json({
             success: true,
             user,
         });
     }
 
     async updateUser(req, res) {
+        console.log(req.body, req.params.id);
         const errors = UserService.validate(req);
 
         if (errors.length > 0) {
@@ -82,7 +84,7 @@ class UserController {
 
             await UserService.deleteById(req.params.id);
 
-            res.json({
+            return res.json({
                 success: true,
             });
         }
@@ -99,7 +101,7 @@ class UserController {
         try {
             const user = await UserService.getById(req.params.id);
 
-            res.json({
+            return res.json({
                 success: true,
                 user,
             });
@@ -113,7 +115,7 @@ class UserController {
     }
 
     async login(req, res) {
-        console.log(req.body);
+        // console.log(req.body);
         try {
             const { email, password } = req.body;
             
@@ -145,7 +147,14 @@ class UserController {
             // const { refresh_token, ...newFinalData } = finalData;
             res.cookie("refresh_token", refresh_token, {
                 HttpOnly: true,
-                Secure: true,
+                Secure: false,
+                // SameSite: "strict",
+            })
+
+            res.cookie("access_token", access_token, {
+                HttpOnly: true,
+                Secure: false,
+                // SameSite: "strict",
             })
 
             // console.log(res.json({
@@ -164,6 +173,25 @@ class UserController {
             return res.json({
                 success: false,
                 error: "Error while logging In. Please try again",
+            });
+        }
+    }
+
+    async logout(req, res) {
+        try {
+            res.clearCookie("refresh_token");
+            res.clearCookie("access_token");
+
+            return res.json({
+                success: true,
+                message: "Logout successfull!",
+            });
+
+        }
+        catch {
+            return res.json({
+                success: false,
+                error: "Error while logging out. Please try again",
             });
         }
     }
