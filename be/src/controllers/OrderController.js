@@ -19,6 +19,7 @@ class OrderController {
   }
 
   async addOrder(req, res) {
+    // console.log(req.body);
     const errors = orderService.validate(req);
 
     if (errors.length > 0) {

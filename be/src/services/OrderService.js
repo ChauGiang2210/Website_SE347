@@ -56,12 +56,12 @@ class OrderService {
     if (!orderData.itemsPrice) {
       errors.push("Trường itemsPrice là bắt buộc");
     }
-    if (!orderData.shippingPrice) {
-      errors.push("Trường shippingPrice là bắt buộc");
-    }
-    if (!orderData.taxPrice) {
-      errors.push("Trường taxPrice là bắt buộc");
-    }
+    // if (!orderData.shippingPrice) {
+    //   errors.push("Trường shippingPrice là bắt buộc");
+    // }
+    // if (!orderData.taxPrice) {
+    //   errors.push("Trường taxPrice là bắt buộc");
+    // }
     if (!orderData.totalPrice) {
       errors.push("Trường totalPrice là bắt buộc");
     }

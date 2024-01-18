@@ -20,6 +20,16 @@ export const orderSlice = createSlice({
         isSucessOrder: false,
     },
     reducers: {
+        addOrder: (state, action) => {
+          const {shippingAddress, paymentMethod, itemsPrice, shippingPrice, taxPrice, totalPrice, isPaid, paidAt } = action.payload
+          state.shippingAddress = shippingAddress
+          state.paymentMethod = paymentMethod
+          state.itemsPrice = itemsPrice
+          state.shippingPrice = shippingPrice
+          state.taxPrice = taxPrice
+          state.totalPrice = totalPrice
+          state.isSucessOrder = true
+        },
         addOrderProduct: (state, action) => {
           const {user, ...orderItem} = action.payload
           state.user = user
@@ -88,6 +98,6 @@ export const orderSlice = createSlice({
     });
 
 // Action creators are generated for each case reducer function
-export const { addOrderProduct,increaseAmount,decreaseAmount,removeOrderProduct,removeAllOrderProduct, selectedOrder,resetOrder } = orderSlice.actions
+export const { addOrder, addOrderProduct,increaseAmount,decreaseAmount,removeOrderProduct,removeAllOrderProduct, selectedOrder,resetOrder } = orderSlice.actions
 
 export default orderSlice.reducer
