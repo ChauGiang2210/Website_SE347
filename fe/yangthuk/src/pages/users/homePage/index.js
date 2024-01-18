@@ -141,8 +141,9 @@ const HomePage = () => {
                         </nav>
                         <img className='img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
                     </div>
+
                     <div className="col-2 body-right">
-                        <div className="row">
+                        <div className="row row-cols-1 row-cols-md-4 g-4">
                             {isLoading && <p>Loading...</p>}
                             {products && products.products.map((product) => (
                                 <Product key={product.id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + product.imageUrl} />
