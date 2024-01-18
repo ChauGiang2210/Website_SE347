@@ -174,8 +174,8 @@ const HomePage = () => {
                         <div className="row row-cols-1 row-cols-md-4 g-4" >
                             {isLoading && <p>Loading...</p>}
                             {products && products.products.map((product) => (
-                                // <Product key={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + product.imageUrl} />
-                                <Product key={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + '/move1.jpg'} />
+                                <Product key={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + product.imageUrl} />
+                                // <Product key={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + '/move1.jpg'} />
                             ))}
                         </div>
                         {/* <Product name={"Son kem Black Rouge"} price={"239.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/> */}
