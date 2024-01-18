@@ -14,6 +14,15 @@ class ProductService {
       }
     }
 
+
+  //   for (const key in conditions) {
+  //     const value = conditions[key];
+  //     conditions[key] = { '$regex': value };
+  // }
+  const label = 'name';
+          console.log({ [label]: { '$regex': conditions['name'] } });
+  
+
     return await this.model.find(conditions).sortable(req);
   }
 
