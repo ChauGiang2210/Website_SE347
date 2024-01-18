@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import { logout } from "../../services/user"
 import { useDispatch } from "react-redux";
 import { resetUser } from "../../redux/slides/userSlide";
+import { resetOrder } from "../../redux/slides/orderSlide";
 
 const LogOut = ({username}) => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const LogOut = ({username}) => {
     const handleLogout = async () => {
         alert("Bạn đã đăng xuất");
         dispatch(resetUser())
+        dispatch(resetOrder())
         const res = await logout();
         console.log(res);
         localStorage.removeItem("token");

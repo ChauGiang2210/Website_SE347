@@ -3,7 +3,7 @@ export const ROUTERS =
     USER:{
         HOME: "",
         PROFILE: "profile",
-        ORDER: "order",
+        ORDER: "order/:id",
         CART: "cart",
         LOGIN: "login",
         REGISTER: "register",
