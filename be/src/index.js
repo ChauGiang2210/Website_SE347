@@ -2,6 +2,7 @@ const express = require('express')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const database = require('./database')
+const cookieParser = require('cookie-parser')
 
 
 // Config dotenv
@@ -12,9 +13,18 @@ const port = process.env.PORT || 3001
 
 database.connect()
 
-// Cors
+
+// Sử dụng cookie-parser để đọc cookie từ request
+app.use(cookieParser());
+
+// Cấu hình CORS
+const corsOptions = {
+  origin: 'http://localhost:3000', // hoặc '*' nếu bạn không quan tâm đến an toàn
+  credentials: true,
+};
+
 const cors = require('cors')
-app.use(cors())
+app.use(cors(corsOptions));
 
 // Body parser
 const bodyParser = require('body-parser')

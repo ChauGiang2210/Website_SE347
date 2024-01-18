@@ -5,6 +5,7 @@ const addressController = require('../controllers/AddressController');
 const { authenticate, adminOnly } = require('../middlewares/auth');
 
 // router
+router.get("/user/:user", addressController.getAllAddresssByUser);
 router.get("/", authenticate, addressController.getAllAddresss);
 router.post("/", authenticate, addressController.addAddress);
 router.put("/:id", authenticate, addressController.updateAddress);

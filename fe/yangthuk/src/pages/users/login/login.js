@@ -2,7 +2,7 @@ import React from "react";
 import { memo, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-import { login } from "../../../services/login";
+import { login } from "../../../services/user";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.css";
 import { useMutation } from '@tanstack/react-query'
@@ -21,8 +21,11 @@ const Login = () => {
     const dispatch = useDispatch();
 
     const mutation = useMutationHook( 
-        data => login(data),
-      )
+        (data) => { 
+            return login(data)
+        },
+
+    )
     
     function isValidForm() {
         return email &&
@@ -41,31 +44,31 @@ const Login = () => {
         setPassword(e.target.value);
     }
 
-    
     const handleLoginClick = async () => {
         mutation.mutate({email, password})
     }
 
     const handleGetDetailUser = async (id, token) => {
         const data = await getDetailUser(id)
+        // console.log(data.user);
         dispatch(updateUser({...data.user, access_token: token}))
     }
 
     useEffect(() => {
-        if (mutation.isSuccess) {
+        if (mutation.isError || (mutation.isSuccess && !mutation.data?.success)) {
+            alert("Đăng nhập thất bại");
+        }
+        if (mutation.isSuccess && mutation.data?.success && mutation.data?.finalData.access_token) {
             localStorage.setItem("token", JSON.stringify(mutation.data.finalData.access_token));
             alert("Đăng nhập thành công");
             navigate("/")
         }
-        if (mutation.data?.finalData.access_token) {
+        if (mutation.data?.success && mutation.data?.finalData.access_token) {
             const decoded = jwtDecode(mutation.data.finalData.access_token);
             if (decoded?.id)
             {
                 handleGetDetailUser(decoded.id, mutation.data.finalData.access_token);
             }
-        }
-        if (mutation.isError) {
-            alert("Đăng nhập thất bại");
         }
     }, [mutation.isSuccess, mutation.isError])
     
@@ -126,7 +129,7 @@ const Login = () => {
                             <button
                                 className="btn btn--primary"
                                 onClick={handleLoginClick}
-                            // disabled={!isValidForm()}
+                            disabled={!isValidForm()}
 
                             >ĐĂNG NHẬP</button>
                         </div>

@@ -5,7 +5,7 @@ class ProductController {
     try {
       const products = await ProductService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         products,
       });
@@ -30,7 +30,7 @@ class ProductController {
 
     const product = await ProductService.create(req.body);
 
-    res.json({
+    return res.json({
       success: true,
       product,
     });
@@ -80,7 +80,7 @@ class ProductController {
 
       await ProductService.deleteById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
       });
     }
@@ -97,7 +97,7 @@ class ProductController {
 
       const product = await ProductService.getById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
         product,
       });
@@ -115,7 +115,7 @@ class ProductController {
       req.query.category = req.params.category;
       const products = await ProductService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         products,
       });
@@ -133,7 +133,7 @@ class ProductController {
       req.query.brand = req.params.brand;
       const products = await ProductService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         products,
       });
@@ -151,7 +151,7 @@ class ProductController {
       req.query.skinType = req.params.skinType;
       const products = await ProductService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         products,
       });

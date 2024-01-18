@@ -26,7 +26,7 @@ import { isJsonString } from "utils/isJsonString";
 import { jwtDecode } from "jwt-decode";
 import { getDetailUser } from "./services/user";
 import { useDispatch } from "react-redux";
-import { updateUser } from "./redux/slides/userSlide";
+import { updateUser, resetUser } from "./redux/slides/userSlide";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -150,10 +150,16 @@ function App() {
     if (storedData && isJsonString(storedData)) {
       storedData = JSON.parse(storedData);
     }
-    console.log('storedData', storedData);
-    const decoded = jwtDecode(storedData);
+    // console.log('storedData', storedData);
+    let decoded = null
+    if (storedData) {
+      decoded = jwtDecode(storedData);
+    }
     if (decoded?.id) {
       handleGetDetailUser(decoded?.id, storedData);
+    }
+    else {
+      dispatch(resetUser({}));
     }
   }, []);
 

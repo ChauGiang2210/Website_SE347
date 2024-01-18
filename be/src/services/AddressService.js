@@ -9,6 +9,7 @@ class AddressService {
     const conditions = {};
     if (query) {
       for (const key in query) {
+        if (key === "column" || key === "_sort" || key === "type") continue;
         conditions[key] = query[key];
       }
     }

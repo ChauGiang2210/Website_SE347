@@ -6,7 +6,7 @@ class CartController {
     try {
 
       const carts = await cartService.getAll(req);
-      res.json({
+      return res.json({
         success: true,
         carts,
       });
@@ -31,7 +31,7 @@ class CartController {
 
     const cart = await cartService.create(req.body);
 
-    res.json({
+    return res.json({
       success: true,
       cart,
     });
@@ -48,7 +48,7 @@ class CartController {
 
       await cartService.deleteById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
       });
     }
