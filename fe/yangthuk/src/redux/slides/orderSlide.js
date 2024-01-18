@@ -21,7 +21,9 @@ export const orderSlice = createSlice({
     },
     reducers: {
         addOrderProduct: (state, action) => {
-          const {orderItem} = action.payload
+          const {user, ...orderItem} = action.payload
+          state.user = user
+
           const itemOrder = state?.orderItems?.find((item) => item?.product === orderItem.product)
           if(itemOrder){
             if(itemOrder.amount <= itemOrder.countInstock) {
