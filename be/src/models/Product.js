@@ -5,13 +5,19 @@ const ProductSchema = new mongoose.Schema(
     name: { type: String, required: true},
     description: { type: String, required: true}, 
     price: { type: Number, required: true, default: 0},
-    category: { type: String, required: true, default: "Unknown"},
-    brand: { type: String, required: true, default: "Unknown" },
+    category: { 
+      type: String, 
+      // required: true, 
+      default: "Unknown"},
+    brand: { 
+      type: String, 
+      // required: true, 
+      default: "Unknown" },
     skinType: {
       type: String,
-      required: true,
-      enum: ["normal", "dry", "oily", "sensitive"],
+      // required: true,
       default: "normal", 
+      // enum: ["normal", "dry", "oily", "sensitive"],
     },
     countInStock: { type: Number, required: true, default: 0},
     rating: { type: Number, default: null},

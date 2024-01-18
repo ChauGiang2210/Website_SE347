@@ -20,6 +20,7 @@ export const getProductById = async (id) => {
 }
 
 export const addProduct = async (data) => {
+    // console.log('data', data)
     const res = await axios.post(`${process.env.REACT_APP_API_URL}/product`, data, {
         headers: {
             "Content-Type": "application/json",

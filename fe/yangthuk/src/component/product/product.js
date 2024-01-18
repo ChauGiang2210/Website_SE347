@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Product = ({name, brand, price, srcImg}) => {
     return (
-        <div className="row row-cols-1 row-cols-md-4 g-4">
+        <div >
         <div className="col">
           <div className="card"><Link to={"/order"}>
             <img src={srcImg} className="card-img-top" alt="..."/>

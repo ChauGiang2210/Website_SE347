@@ -10,7 +10,7 @@ router.get("/brand/:brand", productController.getAllProductsByBrand);
 router.get("/skin-type/:skinType", productController.getAllProductsBySkinType);
 router.get("/:id", productController.getProductById);
 router.get("/", productController.getAllProducts);
-router.post("/", authenticate, adminOnly, productController.addProduct);
+router.post("/", authenticate, productController.addProduct);
 router.put("/:id", authenticate, adminOnly, productController.updateProduct);
 router.delete("/:id", authenticate, adminOnly, productController.deleteProduct);
 
