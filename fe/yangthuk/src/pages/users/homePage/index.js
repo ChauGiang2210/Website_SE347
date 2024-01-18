@@ -149,7 +149,7 @@ const HomePage = () => {
                                 <Product key={product.id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + product.imageUrl} />
                             ))}
                         </div>
-                        {/* <Product name={"Son kem Black Rouge"} price={"239.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/> */}
+                       
                     </div>
                 </div>
             </div>
