@@ -81,7 +81,7 @@ const Total = ({ total, addresses, orderItems }) => {
 
         // console.log('order', order)
         dispatch(addOrder(order))
-        
+
         const orderObject = {
             ...order,
             user: user.id,
@@ -92,13 +92,13 @@ const Total = ({ total, addresses, orderItems }) => {
                     price: item.price,
                     qty: item.amount,
                 }
-        })
+            })
         }
         console.log('orderObject', orderObject)
 
         mutation.mutate(orderObject)
     }
-    
+
 
     return (
         <div className='addUser'>
@@ -129,7 +129,7 @@ const Total = ({ total, addresses, orderItems }) => {
                 {/* <option value="admin">Admin</option> */}
             </select>
 
-            <div className="input-group mb-3">
+            {/* <div className="input-group mb-3">
                 <span className="input-group-text" id="basic-addon1">Địa chỉ:</span>
                 <input type="text" className="form-control" placeholder="Nhập địa chỉ giao hàng" aria-label="-" aria-describedby="basic-addon1" />
             </div>
@@ -137,7 +137,7 @@ const Total = ({ total, addresses, orderItems }) => {
             <div className="input-group mb-3">
                 <span className="input-group-text" id="basic-addon1">Số điện thoại:</span>
                 <input type="number" className="form-control" placeholder="Nhập số điện thoại giao hàng" aria-label="-" aria-describedby="basic-addon1" />
-            </div>
+            </div> */}
 
             <div className="col-auto col d-flex justify-content-center" >
                 <button type="button" className="btn btn-primary btn_cus"
