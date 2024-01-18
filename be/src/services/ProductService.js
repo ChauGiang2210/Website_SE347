@@ -54,9 +54,9 @@ class ProductService {
     if (!data.countInStock) {
       errors.push({ field: "countInStock", message: "Số lượng sản phẩm là bắt buộc" });
     }
-    if (!data.rating) {
-      errors.push({ field: "rating", message: "Đánh giá sản phẩm là bắt buộc" });
-    }
+    // if (!data.rating) {
+    //   errors.push({ field: "rating", message: "Đánh giá sản phẩm là bắt buộc" });
+    // }
     if (!data.imageUrl) {
       errors.push({ field: "imageUrl", message: "Link ảnh sản phẩm là bắt buộc" });
     }
