@@ -26,7 +26,7 @@ const UserInfo = () =>
             <Profile></Profile>
             </div>
             <div className="tab-pane fade show active" id="nav-address" role="tabpanel" aria-labelledby="nav-address-tab" tabIndex="0" style={{margin:"10px"}}>
-            <Address fullName={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"}></Address>
+            <Address fullName={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp. Bến Tre, Bến Tre"}></Address>
             <Address fullName={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"}></Address>
             <hr className="border border-secondary border-2 opacity-50"></hr>
             <p>THÊM ĐỊA CHỈ NHẬN HÀNG</p>
@@ -34,7 +34,7 @@ const UserInfo = () =>
             <button className="btn btn-outline-success btn_cus" type="submit">Thêm địa chỉ</button>
             </div>
             <div className="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab" tabIndex="0">
-            <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp.Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
+            <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp. Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
             </div>
             
             <div className="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab" tabIndex="0">

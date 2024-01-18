@@ -31,7 +31,7 @@ const AddUser = () =>
             <div className="input-group mb-3">
             <label className="input-group-text" for="inputGroupSelect01">Phân quyền:</label>
             <select className="form-select" id="inputGroupSelect01">
-                <option selected>Choose...</option>
+                <option defaultValue={0}>Choose...</option>
                 <option value="1">Admin</option>
                 <option value="2">User</option>
             </select>

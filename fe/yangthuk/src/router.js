@@ -17,17 +17,13 @@ import AddProduct from "pages/admin/addProduct";
 import AddOrder from "pages/admin/addOrder";
 import ForgotPassword from "pages/users/forgotPassword/forgotPassword"
 import { useEffect } from "react";
-<<<<<<< HEAD
 import FixOrder from "pages/admin/fixOrder";
 import FixUser from "pages/admin/fixUser";
 import FixProduct from "pages/admin/fixProduct";
-
-=======
 import axios from "axios";
 import { useQuery } from '@tanstack/react-query'
 // import dotenv from 'dotenv';
 // dotenv.config();
->>>>>>> 25348f77f26e5bc66a44caefac89e0d064fd6b6e
 
 const renderUserRouter = () => {
   const userRouters = [

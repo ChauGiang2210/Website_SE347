@@ -76,8 +76,12 @@ const HomePage = () => {
                         </nav>
                         <img className='img-fluid' src={process.env.PUBLIC_URL + '/logo.png'} alt="logo" />
                     </div>
-                    <div className="col-2 body-right">
+                    <div className="col-2 body-right ">
+                        <div className="row row-cols-1 row-cols-md-4 g-4">
                         <Product name={"Son kem Black Rouge"} price={"239.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/>
+                        <Product name={"Son kem Black Rouge"} price={"249.000 VNĐ"} brand={"Black Rouge"} srcImg={process.env.PUBLIC_URL + '/move1.jpg'}/>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
