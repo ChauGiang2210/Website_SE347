@@ -48,9 +48,9 @@ class ProductService {
     if (!data.description) {
       errors.push({ field: "description", message: "Mô tả sản phẩm là bắt buộc" });
     }
-    if (!data.category) {
-      errors.push({ field: "category", message: "Loại sản phẩm là bắt buộc" });
-    }
+    // if (!data.category) {
+    //   errors.push({ field: "category", message: "Loại sản phẩm là bắt buộc" });
+    // }
     if (!data.countInStock) {
       errors.push({ field: "countInStock", message: "Số lượng sản phẩm là bắt buộc" });
     }
@@ -67,7 +67,7 @@ class ProductService {
     }
 
     // Validate rating:
-    if (data.rating < 1 || data.rating > 5) {
+    if (data.rating && (data.rating < 1 || data.rating > 5)) {
       errors.push({ field: "rating", message: "Đánh giá sản phẩm phải từ 1 đến 5" });
     }
 
