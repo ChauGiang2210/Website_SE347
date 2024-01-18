@@ -5,7 +5,26 @@ class AddressController {
     try {
       const addresss = await addressService.getAll(req);
 
-      res.json({
+      return res.json({
+        success: true,
+        addresss,
+      });
+    }
+    catch {
+      return res.json({
+        success: false,
+        error: "Address not found",
+      });
+    }
+  }
+
+  async getAllAddresssByUser(req, res) {
+    try {
+      req.query.userID = req.params.user;
+      // console.log(req.query.userID);
+      const addresss = await addressService.getAll(req, req.query);
+
+      return res.json({
         success: true,
         addresss,
       });
@@ -30,7 +49,7 @@ class AddressController {
 
     const address = await addressService.create(req.body);
 
-    res.json({
+    return res.json({
       success: true,
       address,
     });
@@ -80,7 +99,7 @@ class AddressController {
 
       await addressService.deleteById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
       });
     }

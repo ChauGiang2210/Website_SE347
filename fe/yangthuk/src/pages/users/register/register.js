@@ -1,17 +1,75 @@
 import React from "react";
-import { memo } from "react";
+import { memo, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useMutationHook } from '../../../hooks/useMutationHook';
 import "./style.css";
+import { register } from "../../../services/user";
 
 const Register = () => {
-    // let history = useHistory();
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setComfirmPassword] = useState('');
+    const [role, setRole] = useState('user');
+
+    const mutation = useMutationHook(
+        (data) => {
+            return register(data)
+        }
+    )
+
+    const { data, isSuccess, isError } = mutation
+
+    useEffect(() => {
+        // console.log(data);
+        if (isError || (isSuccess && !data?.success)) {
+            alert("Đăng ký thất bại");
+            navigate("/register")
+        }
+        if (isSuccess && data?.success) {
+            alert("Đăng ký thành công")
+            console.log(data);
+            navigate("/login")
+        }
+        if (data?.success) {
+            alert("đăng ký thành công")
+            console.log(data);
+            navigate("/login")
+        }
+    }, [isSuccess, isError])
+
+    const handleOnChangeUsername = (e) => {
+            setUsername(e.target.value);
+        }
+
+    const handleOnChangeEmail = (e) => {
+            setEmail(e.target.value);
+        }
+
+    const handleOnChangePassword = (e) => {
+            setPassword(e.target.value);
+        }
+
+    const handleOnChangeConfirmPassword = (e) => {
+            setComfirmPassword(e.target.value);
+        }
+
+    const handleOnChangeRole = (e) => {
+            setRole(e.target.value)
+        }
+
+    const handleRegisterClick = async () => {
+        // console.log(username, email, password, role);
+        mutation.mutate({ username, email, password, role })
+    }
 
     return (
         <div className="modal">
             <div className="modal__overlay" />
             <div className="modal__body">
-                {/* Register form */}
                 <div className="auth-form">
                     <form className="auth-form__container">
                         <div className="auth-form__header">
@@ -26,6 +84,8 @@ const Register = () => {
                                     type="text"
                                     className="auth-form__input"
                                     placeholder="Nhập tên của bạn"
+                                    value={username}
+                                    onChange={handleOnChangeUsername}
                                 />
                             </div>
                             <div className="auth-form__group">
@@ -33,6 +93,8 @@ const Register = () => {
                                     type="email"
                                     className="auth-form__input"
                                     placeholder="Nhập email của bạn"
+                                    value={email}
+                                    onChange={handleOnChangeEmail}
                                 />
                             </div>
                             <div className="auth-form__group">
@@ -40,6 +102,8 @@ const Register = () => {
                                     type="password"
                                     className="auth-form__input"
                                     placeholder="Nhập mật khẩu của bạn"
+                                    value={password}
+                                    onChange={handleOnChangePassword}
                                 />
                             </div>
                             <div className="auth-form__group">
@@ -47,12 +111,16 @@ const Register = () => {
                                     type="password"
                                     className="auth-form__input"
                                     placeholder="Nhập lại mật khẩu của bạn"
+                                    value={confirmPassword}
+                                    onChange={handleOnChangeConfirmPassword}
                                 />
                             </div>
-                            <select className="form-select" aria-label="Default select example">
-                            <option defaultValue={"0"}>Chọn chức năng</option>
-                            <option value="1">User</option>
-                            <option value="2">Admin</option>
+                            <select className="form-select" aria-label="Default select example" 
+                                    value={role}
+                                    onChange={handleOnChangeRole}
+                                    >
+                            <option value="user">User</option>
+                            <option value="admin">Admin</option>
                             </select>
                         </div>
                         <div className="auth-form__aside">
@@ -67,16 +135,16 @@ const Register = () => {
                                 </Link>
                             </p>
                         </div>
-
                         <div className="auth-form__controls">
-
                             <Link to={"/login"} className="link">
                             <button className="btn btn--normal auth-form__controls-back">
-
                                 TRỞ LẠI
                             </button>
                             </Link>
-                            <button className="btn btn--primary">ĐĂNG KÝ</button>
+                            <button className="btn btn--primary"
+                                onClick={handleRegisterClick}
+                                disabled={!username || !email || !password || !confirmPassword}
+                            >ĐĂNG KÝ</button>
                         </div>
                     </form>
                 </div>

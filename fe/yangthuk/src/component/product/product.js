@@ -17,7 +17,7 @@ const Product = ({name, brand, price, srcImg}) => {
             </Link>
           </div>
         </div>
-        <div className="col">
+        {/* <div className="col">
           <div className="card"><Link to={"/order"}>
             <img src={srcImg} className="card-img-top" alt="..."/>
             <div className="card-body product-content">
@@ -49,7 +49,7 @@ const Product = ({name, brand, price, srcImg}) => {
             </div>
             </Link>
           </div>
-        </div>
+        </div> */}
   
         </div>
     )

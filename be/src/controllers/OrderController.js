@@ -5,7 +5,7 @@ class OrderController {
     try {
       const orders = await orderService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         orders,
       });
@@ -30,7 +30,7 @@ class OrderController {
 
     const order = await orderService.create(req.body);
 
-    res.json({
+    return res.json({
       success: true,
       order,
     });
@@ -80,7 +80,7 @@ class OrderController {
 
       await orderService.deleteById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
       });
     }
@@ -97,7 +97,7 @@ class OrderController {
 
       const order = await orderService.getById(req.params.id);
 
-      res.json({
+      return res.json({
         success: true,
         order,
       });
@@ -115,7 +115,7 @@ class OrderController {
       req.query.user = req.params.user;
       const orders = await orderService.getAll(req, req.query);
 
-      res.json({
+      return res.json({
         success: true,
         orders,
       });
