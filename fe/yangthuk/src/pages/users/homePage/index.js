@@ -86,7 +86,7 @@ const HomePage = () => {
 
             <div>
                 <div className='row'>
-                    <div className="col-1 body-left">
+                    <div className="col-1 body-left d-none d-sm-block">
                         <nav id="menu">
                             <base target="mainframe" />
                             <div className="btn-group dropend" style={{ margin: "2%", width: "200px" }}>

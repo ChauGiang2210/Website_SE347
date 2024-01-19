@@ -4,7 +4,7 @@ const router = express.Router();
 const orderController = require('../controllers/OrderController.js');
 const { authenticate, adminOnly } = require('../middlewares/auth');
 
-router.get('/user/:user', authenticate, orderController.getAllOrdersByUser);
+router.get('/user/:user', orderController.getAllOrdersByUser);
 router.get('/:id', authenticate, orderController.getOrderById);
 router.get('/', authenticate, adminOnly, orderController.getAllOrders);
 router.post('/', orderController.addOrder);

@@ -9,39 +9,54 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { getAllAddresssByUser } from "../../../services/address";
-
+import { getAllOrdersByUser } from "../../../services/order";
 
 const UserInfo = () => {
     const navigate = useNavigate();
     const user = useSelector(state => state.user)
 
     const [address, setAddress] = useState([])
+    const [order, setOrder] = useState([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const res = await handleGetAllAddress(user.id);
                 setAddress(res);
-                console.log(res);
+                console.log('address', res);
             } catch (error) {
                 console.error("Error fetching address:", error);
             }
         };
     
         fetchData();
-        console.log(address);
     }, [user])
 
     const handleGetAllAddress = async (id) => {
         const res = await getAllAddresssByUser(id);
-        // console.log(res.addresss);
         return res.addresss;
     }
 
-    // const handleOnChangeAddress = (e) => {
-    //     setAddress(e.target.value);
-    // }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await handleGetAllOrder(user.id);
+                setOrder(res);
+                console.log('orderres',res);
+            } catch (error) {
+                console.error("Error fetching order:", error);
+            }
+        };
+    
+        fetchData();
+        console.log('my-orer', order);
+    }, [user])
 
+    const handleGetAllOrder = async (id) => {
+        const res = await getAllOrdersByUser(id);
+        console.log('res.orders', res.orders);
+        return res.orders;
+    }
 
 
     return (
@@ -71,15 +86,22 @@ const UserInfo = () => {
                     )
                 })
             }
-            <Address fullName={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"} />
-            <Address fullName={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"} />
+            {/* <Address fullName={"Châu Giang"} phone={"0915 303 xxx"} address={"Phú Hưng, tp.Bến Tre, Bến Tre"} />
+            <Address fullName={"Ngọc Thức"} phone={"0915 303 xxx"} address={"Thốt Nốt, Cần Thơ"} /> */}
             <hr className="border border-secondary border-2 opacity-50"></hr>
             <p>THÊM ĐỊA CHỈ NHẬN HÀNG</p>
             <AddAddress />
 
             </div>
             <div className="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab" tabIndex="0">
-            <History date={"22/10/2023"} status={"Done"} address={"Châu Giang, Phú Hưng, tp. Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History>
+                {
+                    order.map((item, index) => {
+                        return (
+                            <History key={index} date={item.createdAt.split("T")[0]} status={item.isDelivered?'Đã giao':(item.isPaid?'Đã thanh toán':'Chưa thanh toán')} address={item.shippingAddress.address} detail={item.orderItems.map((orderItem)=>(orderItem.name)).join(", ")} price={item.totalPrice} />
+                        )
+                    })
+                }
+            {/* <History date={"22/10/2023"} status={"Done"} address={"Châu Giag, Phú Hưng, tp. Bến Tre, Bến Tre"} detail={"Son Ofelia"} price="239.000 vnđ" ></History> */}
             </div>
             
             <div className="tab-pane fade" id="nav-like" role="tabpanel" aria-labelledby="nav-like-tab" tabIndex="0">

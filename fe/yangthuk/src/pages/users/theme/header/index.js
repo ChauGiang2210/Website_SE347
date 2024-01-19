@@ -39,18 +39,18 @@ const Header = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid" >
           {/* style={{backgroundColor: "rgba(3,140,127,0.5)", padding: "0.5%"}} */}
-          <a className="navbar-brand" href="#">YangThuk</a>
+          <Link className="navbar-brand" to={"/"}>YangThuk</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">Trang chủ</a>
               </li>
               <li className="nav-item">
                 <Link to="/order" style={{ textDecoration: "none", color: "inherit", fontSize: '16px' }} className="nav-link" >Sản phẩm</Link>
-              </li>
+              </li> */}
               {/* <li className="nav-item">
               <a className="nav-link" href="/admin">Quản lý</a>
             </li>

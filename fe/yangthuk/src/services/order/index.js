@@ -28,12 +28,14 @@ export const getOrderById = async (id) => {
 }
 
 export const getAllOrdersByUser = async (user) => {
+    console.log('url', `${process.env.REACT_APP_API_URL}/order/user/${user}`)
     const res = await axios.get(`${process.env.REACT_APP_API_URL}/order/user/${user}`, {
         headers: {
             "Content-Type": "application/json",
             authorization: `Bearer ${localStorage.getItem("token").split('"').join('')}`,
         },
     });
+    console.log('res', res.data)
     return res.data
 }
 

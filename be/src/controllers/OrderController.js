@@ -114,6 +114,7 @@ class OrderController {
   async getAllOrdersByUser(req, res) {
     try {
       req.query.user = req.params.user;
+
       const orders = await orderService.getAll(req, req.query);
 
       return res.json({
