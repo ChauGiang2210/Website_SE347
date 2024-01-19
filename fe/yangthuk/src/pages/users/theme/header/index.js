@@ -11,13 +11,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LogOut from "component/logOut/index";
 import { useSelector } from "react-redux";
 // import { logout } from "../../../../services/user"
-// import { useDispatch } from "react-redux";
-// import { resetUser } from "../../../../redux/slides/userSlide";
+import { useDispatch } from "react-redux";
+import { searchProduct, resetSearch } from "../../../../redux/slides/productSlide";
 
 const Header = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
   const [username, setUsername] = useState('');
   const user = useSelector(state => state.user)
+  
   // console.log(user.username || false);
   useEffect(() => {
     setUsername(user.username)
@@ -33,6 +35,18 @@ const Header = () => {
   //   // window.location.reload();
   // };
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleSearch = () => {
+    // console.log('search', search)
+    if (search!=='') {
+    dispatch(searchProduct(search))
+    }
+    else {
+      dispatch(resetSearch())
+  }}
 
   return (
     <>
@@ -60,8 +74,13 @@ const Header = () => {
             </ul>
 
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success btn_cus" type="submit">Search</button>
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+              onChange={handleSearchChange}
+              value={search}
+              />
+              <button className="btn btn-outline-success btn_cus" type="button"
+              onClick={handleSearch}
+              >Search</button>
             </form>
             <Link to={"/cart"}><button className="btn btn-link btn_icon" type="submit" style={{ textDecoration: "none", color: "black", fontSize: '16px' }}><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
             {

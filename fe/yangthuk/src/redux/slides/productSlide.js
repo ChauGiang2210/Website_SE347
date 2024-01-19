@@ -59,7 +59,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const productSlice = createSlice({
   name: 'product',
   initialState: {
-    // search: ''
+    search: '',
     id: '',
     name: '',
     image: '',
@@ -72,9 +72,14 @@ export const productSlice = createSlice({
     skinType: '',
   },
   reducers: {
-    // searchProduct: (state, action) => {
-    //   state.search = action.payload
-    // },
+    searchProduct: (state, action) => {
+      state.search = action.payload
+    },
+
+    resetSearch: (state) => {
+      state.search = ''
+    },
+
     updateProduct: (state, action) => {
       // console.log(action.payload);
       state.id = action.payload._id
@@ -106,6 +111,6 @@ export const productSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { updateProduct, resetProduct } = productSlice.actions
+export const { updateProduct, resetProduct, searchProduct, resetSearch } = productSlice.actions
 
 export default productSlice.reducer
