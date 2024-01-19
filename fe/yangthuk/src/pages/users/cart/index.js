@@ -23,7 +23,7 @@ const Cart = () => {
     useEffect(() => {
         if (order?.orderItems?.length > 0) {
             setOrderItems(order.orderItems)
-            // console.log('orderItems', orderItems)
+            console.log('orderItems', orderItems)
         }
     }, [order])
 

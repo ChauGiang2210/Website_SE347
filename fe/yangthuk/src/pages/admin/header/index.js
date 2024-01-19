@@ -17,7 +17,7 @@ const Header = () =>
       <Link to="#" className="navbar-brand">YangThuk Comestic</Link>
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <Link to="/" className="nav-link active" aria-current="page" >Trang chủ</Link>
+          <a href="/" className="nav-link active" aria-current="page" >Trang chủ</a>
         </li>
         <li className="nav-item">
           <Link to="/admin" className="nav-link" >Kho hàng</Link>

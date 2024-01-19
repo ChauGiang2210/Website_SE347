@@ -3,9 +3,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./style.scss";
 import { Link } from "react-router-dom";
 import Delete from "component/delete/index";
+import { getAllOrders } from "../../../services/order"
+import Loading from "../../../component/LoadingComponent";
+import { useQuery } from "@tanstack/react-query";
 
 const CartManage = () =>
 {
+    const [loading, setLoading] = useState(false);
+
+    const fetchOrderAll = async () => {
+        const res = await getAllOrders()
+        // console.log('res', res)
+        return res
+    }
+
+    const { isSuccess, isLoading, data: orders } = useQuery({ queryKey: ['orders'], queryFn: fetchOrderAll, retry: 3, retryDelay: 1000 })
+    // console.log(orders.orders)
+
+
     const [isDeleteModalVisible, setDeleteModalVisible] = useState(false);
     const handleDeleteClick = () => {
         // Mở modal xóa khi click vào liên kết "Xóa"
@@ -17,13 +32,13 @@ const CartManage = () =>
         // Đóng modal xóa
         setDeleteModalVisible(false);
     };
-    const name = "Châu Giang"
-    const address = "Bến Tre"
-    const phone = "0915 303 xxx"
-    const list_product = "toner, kem chống nắng"
-    const price = "500.000 VNĐ"
+    // const name = "Châu Giang"
+    // const address = "Bến Tre"
+    // const phone = "0915 303 xxx"
+    // const list_product = "toner, kem chống nắng"
+    // const price = "500.000 VNĐ"
     return (
-        <>
+        <Loading isLoading={isLoading||loading}>
             <div className="Manage">
             <h3>QUẢN LÝ ĐƠN HÀNG</h3>
             <hr className="border border-secondary border-2 opacity-50"></hr>
@@ -44,7 +59,21 @@ const CartManage = () =>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {
+                        orders?.orders?.map((order, index) => (
+                            <tr key={index}>
+                                <th scope="row">{index+1}</th>
+                                <td>{order.shippingAddress.fullName}</td>
+                                <td>{order.shippingAddress.address}</td>
+                                <td>{order.shippingAddress.phone}</td>
+                                <td>{order.orderItems.map((orderItem)=>orderItem.name).join(", ")}</td>
+                                <td>{order.totalPrice}</td>
+                                <td><Link to ="/admin/cartmanage/fixorder" className="card-link">Sửa</Link></td>
+                                <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
+                            </tr>
+                        ))
+                    }
+                    {/* <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{address}</td>
@@ -64,14 +93,14 @@ const CartManage = () =>
                     <td>{price}</td>
                     <td><Link to ="/admin/cartmanage/fixorder" className="card-link">Sửa</Link></td>
                     <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
             </div>
             {isDeleteModalVisible && (
                 <Delete onClose={() => setDeleteModalVisible(false)} onConfirm={handleDeleteConfirm} />
             )}
-        </>
+        </Loading>
     )
 
 };
