@@ -12,8 +12,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { useQuery } from "@tanstack/react-query";
 
-const ProductManage = () =>
-{
+const ProductManage = () => {
     const dispatch = useDispatch()
     const [loading, setLoading] = useState(false);
     const [selected, setSelected] = useState(null);
@@ -52,45 +51,45 @@ const ProductManage = () =>
         // const index = findIndexById(products.products, id)
         // console.log('index', index, id)
         // dispatch(updateProduct(products.products[index]))
-        
+
     }
 
     return (
         <Loading isLoading={isLoading || loading}>
 
             <div className="Manage">
-            <h3>QUẢN LÝ KHO HÀNG</h3>
-            <hr className="border border-secondary border-2 opacity-50"></hr>
-            <Link to = "/admin/productmanage/addproduct"><button type="button" className="btn btn-outline-secondary btn_cus">Thêm sản phẩm</button></Link>
-            {/* <button type="button" className="btn btn-outline-secondary btn_cus">Xóa sản phẩm</button>
+                <h3>QUẢN LÝ KHO HÀNG</h3>
+                <hr className="border border-secondary border-2 opacity-50"></hr>
+                <Link to="/admin/productmanage/addproduct"><button type="button" className="btn btn-outline-secondary btn_cus">Thêm sản phẩm</button></Link>
+                {/* <button type="button" className="btn btn-outline-secondary btn_cus">Xóa sản phẩm</button>
             <button type="button" className="btn btn-outline-secondary btn_cus">Sửa sản phẩm</button> */}
-            <table className="table table-striped table-hover">
-                <thead>
-                    <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tên mặt hàng</th>
-                    <th scope="col">Nhà sản xuất</th>
-                    <th scope="col">Số lượng</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        products && products.products.map((product, index)=>(
-                            <tr>
-                    <th scope="row">{index}</th>
-                    <td>{product.name}</td>
-                    <td>{product.brand}</td>
-                    <td>{product.countInStock}</td>
-                    <td onClick={handleUpdateClick}><Link to = "/admin/productmanage/fixproduct" className="card-link"
-                    onClick={handleUpdateClick}
-                    >Sửa</Link></td>
-                    <td><Link to ="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
-                    </tr>
-                        ))
-                    }
-                    {/* <tr>
+                <table className="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tên mặt hàng</th>
+                            <th scope="col">Nhà sản xuất</th>
+                            <th scope="col">Số lượng</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            products && products.products.map((product, index) => (
+                                <tr key={index}>
+                                    <th scope="row">{index}</th>
+                                    <td>{product.name}</td>
+                                    <td>{product.brand}</td>
+                                    <td>{product.countInStock}</td>
+                                    <td onClick={handleUpdateClick}><Link to="/admin/productmanage/fixproduct" className="card-link"
+                                        onClick={handleUpdateClick}
+                                    >Sửa</Link></td>
+                                    <td><Link to="#" className="card-link" onClick={handleDeleteClick}>Xóa</Link></td>
+                                </tr>
+                            ))
+                        }
+                        {/* <tr>
                     <th scope="row">1</th>
                     <td>{name}</td>
                     <td>{produce}</td>
@@ -114,8 +113,8 @@ const ProductManage = () =>
                     <td><Link to ="/admin/productmanage/fixproduct" className="card-link">Sửa</Link></td>
                     <td><Link to ="#" className="card-link"onClick={handleDeleteClick}>Xóa</Link></td>
                     </tr> */}
-                </tbody>
-            </table>
+                    </tbody>
+                </table>
             </div>
             {isDeleteModalVisible && (
                 <Delete onClose={() => setDeleteModalVisible(false)} onConfirm={handleDeleteConfirm} />
