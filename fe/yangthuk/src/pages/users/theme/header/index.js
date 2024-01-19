@@ -11,13 +11,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import LogOut from "component/logOut/index";
 import { useSelector } from "react-redux";
 // import { logout } from "../../../../services/user"
-// import { useDispatch } from "react-redux";
-// import { resetUser } from "../../../../redux/slides/userSlide";
+import { useDispatch } from "react-redux";
+import { searchProduct, resetSearch } from "../../../../redux/slides/productSlide";
 
 const Header = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const [search, setSearch] = useState('');
   const [username, setUsername] = useState('');
   const user = useSelector(state => state.user)
+  
   // console.log(user.username || false);
   useEffect(() => {
     setUsername(user.username)
@@ -33,24 +35,36 @@ const Header = () => {
   //   // window.location.reload();
   // };
 
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value)
+  }
+
+  const handleSearch = () => {
+    // console.log('search', search)
+    if (search!=='') {
+    dispatch(searchProduct(search))
+    }
+    else {
+      dispatch(resetSearch())
+  }}
 
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid" >
           {/* style={{backgroundColor: "rgba(3,140,127,0.5)", padding: "0.5%"}} */}
-          <a className="navbar-brand" href="#">YangThuk</a>
+          <Link className="navbar-brand" to={"/"}>YangThuk</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link active" aria-current="page" href="/">Trang chủ</a>
               </li>
               <li className="nav-item">
                 <Link to="/order" style={{ textDecoration: "none", color: "inherit", fontSize: '16px' }} className="nav-link" >Sản phẩm</Link>
-              </li>
+              </li> */}
               {/* <li className="nav-item">
               <a className="nav-link" href="/admin">Quản lý</a>
             </li>
@@ -60,8 +74,13 @@ const Header = () => {
             </ul>
 
             <form className="d-flex" role="search">
-              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
-              <button className="btn btn-outline-success btn_cus" type="submit">Search</button>
+              <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" 
+              onChange={handleSearchChange}
+              value={search}
+              />
+              <button className="btn btn-outline-success btn_cus" type="button"
+              onClick={handleSearch}
+              >Search</button>
             </form>
             <Link to={"/cart"}><button className="btn btn-link btn_icon" type="submit" style={{ textDecoration: "none", color: "black", fontSize: '16px' }}><MdOutlineShoppingCart className='icon' />Giỏ hàng</button></Link>
             {

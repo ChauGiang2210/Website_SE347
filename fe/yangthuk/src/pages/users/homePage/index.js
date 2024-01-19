@@ -9,25 +9,51 @@ import { useQuery } from "@tanstack/react-query";
 import { getAllProducts } from "../../../services/product"
 import { useState } from "react";
 import Loading from "../../../component/LoadingComponent";
+import { useSelector } from "react-redux";
+import { resetSearch } from "../../../redux/slides/productSlide";
+import { useDispatch } from "react-redux";
 
 const HomePage = () => {
+    const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
     const [categorys, setCategorys] = useState([]);
     const [brands, setBrands] = useState([]);
     const [skinTypes, setSkinTypes] = useState([]);
+    const [productState, setProductState] = useState([])
+    const [search, setSearch] = useState('');
 
+    
     const fetchProductAll = async () => {
+        setLoading(true)
         const res = await getAllProducts()
         // console.log('res', res)
+        setLoading(false)
         return res
     }
-
-    const { isLoading, data: products } = useQuery({ queryKey: ['products'], queryFn: fetchProductAll, retry: 3, retryDelay: 1000 })
+    
+    const { isSuccess ,isLoading, data: products } = useQuery({ queryKey: ['products'], queryFn: fetchProductAll, retry: 3, retryDelay: 1000 })
     // console.log('products', products.products)
     // console.log('url', process.env.PUBLIC_URL + '/logo.png')
     // products = products.products
+    
+    const product = useSelector((state) => state.product)
+    // console.log('product', product.search)
 
+    useEffect(() => {
+        if (isSuccess) {
+            setSearch(product?.search)
+            if (product?.search!=='') {
+                filterProducts('name', product?.search)
+            }
+            else {
+                setProductState(products.products)
+            }
+            // filterProducts('name', search)
+            // dispatch(resetSearch())
 
+        }
+    }, [product])
+    
     const fetchProductAllCategory = async () => {
         setLoading(true)
         const res = await getAllProducts()
@@ -73,7 +99,39 @@ const HomePage = () => {
 
     useEffect(() => {
         fetchProductAllCategory()
+        if (isSuccess) {
+            setProductState(products.products)
+        }
     }, [])
+
+    useEffect(() => {
+        if (isSuccess) {
+            setProductState(products.products)
+        }
+    }, [isSuccess, isLoading])
+
+
+    const sortProducts = (property, direction) => {
+        const sortedProducts = [...productState].sort((a, b) => {
+          if (direction === 'asc') {
+            return a[property] - b[property];
+          } else {
+            return b[property] - a[property];
+          }
+        });
+    
+        setProductState(sortedProducts);
+        console.log('sortedProducts', sortedProducts)
+      };
+
+    const filterProducts = (property, value) => {
+        const filteredProducts = [...products.products].filter((product) => product[property] === value);
+    
+        setProductState(filteredProducts);
+        console.log('filteredProducts', filteredProducts)
+      }
+
+
 
     return (
         <Loading isLoading={isLoading || loading}>
@@ -86,7 +144,7 @@ const HomePage = () => {
 
             <div>
                 <div className='row'>
-                    <div className="col-1 body-left">
+                    <div className="col-1 body-left d-none d-sm-block">
                         <nav id="menu">
                             <base target="mainframe" />
                             <div className="btn-group dropend" style={{ margin: "2%", width: "200px" }}>
@@ -94,9 +152,17 @@ const HomePage = () => {
                                     Sắp xếp theo thứ tự &nbsp;
                                 </button>
                                 <ul className="dropdown-menu">
-                                    <li><Link to="#" className="dropdown-item" >Mới nhất</Link></li>
+                                    {/* <li><Link to="#" className="dropdown-item" 
+                                        
+                                    >Mới nhất</Link></li>
                                     <li><Link to="#" className="dropdown-item" >Giá từ thấp đến cao</Link></li>
-                                    <li><Link to="#" className="dropdown-item" >Giá từ cao đến thấp</Link></li>
+                                    <li><Link to="#" className="dropdown-item" >Giá từ cao đến thấp</Link></li> */}
+                                    <li><button className="btn"
+                                    onClick={() => sortProducts('price', 'desc')}
+                                    >Giá từ cao tới thấp</button></li>
+                                    <li><button className="btn"
+                                    onClick={() => sortProducts('price', 'asc')}
+                                    >Giá từ thấp tới cao</button></li>
 
                                 </ul>
                             </div>
@@ -107,8 +173,13 @@ const HomePage = () => {
                                 </button>
                                 <ul className="dropdown-menu">
                                     {
+                                        // brands.map((brand,index) => (
+                                        //     <li key={index}><Link to="#" className="dropdown-item" >{brand}</Link></li>
+                                        // ))
                                         brands.map((brand,index) => (
-                                            <li key={index}><Link to="#" className="dropdown-item" >{brand}</Link></li>
+                                            <li key={index}>
+                                            <button className="btn" onClick={() => filterProducts('brand', brand)}>{brand}</button>
+                                            </li>
                                         ))
                                     }
                                     {/* <li><Link to="#" className="dropdown-item" >Unilever</Link></li>
@@ -126,10 +197,19 @@ const HomePage = () => {
                                 </button>
                                 <ul className="dropdown-menu">
                                     {
+                                        // categorys.map((category,index) => (
+                                        //     <li key={index}><Link to="#" className="dropdown-item" >{category}</Link></li>
+                                        // ))
                                         categorys.map((category,index) => (
-                                            <li key={index}><Link to="#" className="dropdown-item" >{category}</Link></li>
+                                            <li key={index}>
+                                            <button className="btn" onClick={() => filterProducts('category', category)}>{category}</button>
+                                            </li>
                                         ))
                                     }
+                                    {/* <li>
+                                    <button onClick={() => filterProducts('category', 'Skincare')}>Lọc sản phẩm Skincare</button>
+                                    </li> */}
+                                        
                                     {/* <li><Link to="#" className="dropdown-item" >Làm sạch</Link></li>
                                                 <li><Link to="#" className="dropdown-item" >Toner/lotion</Link></li>
                                                 <li><Link to="#" className="dropdown-item" >Serum</Link></li>
@@ -146,7 +226,9 @@ const HomePage = () => {
                                 <ul className="dropdown-menu">
                                     {
                                         skinTypes.map((skinType,index) => (
-                                            <li key={index}><Link to="#" className="dropdown-item" >{skinType}</Link></li>
+                                            <li key={index}>
+                                                <button className="btn" onClick={() => filterProducts('skinType', skinType)}>{skinType}</button>
+                                            </li>
                                         ))
                                     }
                                     {/* <li><Link to="#" className="dropdown-item" >Làm sạch</Link></li>
@@ -173,8 +255,8 @@ const HomePage = () => {
 
                     <div className="col-2 body-right">
                         <div className="row row-cols-1 row-cols-md-4 g-4">
-                            {isLoading && <p>Loading...</p>}
-                            {products && products.products.map((product) => (
+                            {isLoading ? <p>Loading...</p>:
+                            productState.map((product) => (
                                 <Product key={product._id} id={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + product.imageUrl} />
                                 // <Product key={product._id} name={product.name} price={product.price} brand={product.brand} srcImg={process.env.PUBLIC_URL + '/move1.jpg'} />
                             ))}

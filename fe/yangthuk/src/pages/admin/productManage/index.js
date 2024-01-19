@@ -9,6 +9,8 @@ import { useQuery } from "@tanstack/react-query";
 import Loading from "component/LoadingComponent";
 import { updateProduct } from "../../../redux/slides/productSlide";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+// import { useQuery } from "@tanstack/react-query";
 
 const ProductManage = () =>
 {
@@ -38,9 +40,9 @@ const ProductManage = () =>
         setDeleteModalVisible(false);
     };
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    }, [selected]);
+    // }, [selected]);
 
     const handleUpdateClick = (id) => {
         // console.log('update', products.products)

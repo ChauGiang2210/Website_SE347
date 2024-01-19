@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Product = ({id, name, brand, price, srcImg}) => {
     const navigate = useNavigate();
     const handleOnClick = (id) => {
-        console.log("Click");
+        // console.log("Click");
         navigate(`/order/${id}`);
     }
     return (

@@ -2,14 +2,14 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import LogOut from "component/logOut/index";
-import { useSelector } from "react-redux";
 import { logout } from "../../services/user"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { resetUser } from "../../redux/slides/userSlide";
 import { resetOrder } from "../../redux/slides/orderSlide";
 
 const LogOut = ({username}) => {
     const dispatch = useDispatch();
+    const user = useSelector(state => state.user)
 
     const handleLogout = async () => {
         alert("Bạn đã đăng xuất");
@@ -31,7 +31,8 @@ const LogOut = ({username}) => {
 
                 <ul className="dropdown-menu">
                     <li><Link className="dropdown-item" to="/user">Thông tin</Link></li>
-                    <li><a className="dropdown-item" href="/admin">Quản lý</a></li>
+                    { user?.role === 'admin' && <li><a className="dropdown-item" href="/admin">Quản lý</a></li>}
+                    {/* <li><a className="dropdown-item" href="/admin">Quản lý</a></li> */}
                     <li><Link className="dropdown-item" to="/" onClick={handleLogout}>Log out</Link></li>
                 </ul>
             </div>
